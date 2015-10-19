@@ -175,207 +175,218 @@ exp(coef(all_wissen.cat.glm))
 exp(confint.default(all_wissen.cat.glm))
 
 #table
-rows1.wissen6 <- c("age", "", "sex", "", "", "smok.status", "", "",
-                  "ed.level", "", "", "risk.perc", "", "", "", "", "",
-                  "asthma.rhin.conj", "", "","parent.asthm", "", "")
+rows1.wissen6 <- c("age", "", "", "sex", "", "", "smok.status", "", "",
+                   "ed.level", "", "", "risk.perc", "", "", "", "", "",
+                   "asthma.rhin.conj", "", "","parent.asthm", "", "")
 
-rows2.wissen6 <- c("younger", "older", "female", "male", "", "non-smoker", "smoker", "",
-                  "haupt.", "real + fachhoch + abitur", "", "allerg.bekomm", "", "",
-                  "allerg.schlimm", "", "", "no", "yes", "", "no", "yes","")
-rows3.wissen6 <- c("", "", "", "", "", "", "", "", "", "", "",
-                  "likely", "unlikely", "", "very bad", "not so bad", "",
-                  "", "", "", "", "", "")
+rows2.wissen6 <- c("younger", "older", "", "female", "male", "", "non-smoker", "smoker", "",
+                   "haupt.", "real + fachhoch + abitur", "", "allerg.bekomm", "", "",
+                   "allerg.schlimm", "", "", "no", "yes", "", "no", "yes","")
+rows3.wissen6 <- c("", "", "", "", "", "", "", "", "", "", "", "",
+                   "likely", "unlikely", "", "very bad", "not so bad", "",
+                   "", "", "", "", "", "")
 rows4.wissen6 <- c(table(data$all_wissen.factor,data$alterkat2)[2],
-                  table(data$all_wissen.factor,data$alterkat2)[4],
-                  
-                  table(data$all_wissen.factor,data$sex.factor)[2],
-                  table(data$all_wissen.factor,data$sex.factor)[4],
-                  "",
-                                    
-                  table(data$all_wissen.factor,data$smoking.status.factor)[2],
-                  table(data$all_wissen.factor,data$smoking.status.factor)[4],
-                  "",
-                  
-                  table(data$all_wissen.factor,data$schulabschluss.factor.twolevels)[2],
-                  table(data$all_wissen.factor,data$schulabschluss.factor.twolevels)[4],
-                  "",
-                  
-                  table(data$all_wissen.factor,data$allergie3_bekommen.factor)[2],
-                  table(data$all_wissen.factor,data$allergie3_bekommen.factor)[4],
-                  "",
-                  
-                  table(data$all_wissen.factor,data$allergie3_schlimm.factor)[2],
-                  table(data$all_wissen.factor,data$allergie3_schlimm.factor)[4],
-                  "",
-                  
-                  table(data$all_wissen.factor,data$asthma.or.rhinoconj.factor)[2],
-                  table(data$all_wissen.factor,data$asthma.or.rhinoconj.factor)[4],
-                  "",
-                  
-                  table(data$all_wissen.factor,data$par.asthma.factor)[2],
-                  table(data$all_wissen.factor,data$par.asthma.factor)[4],
-                  ""
-                  )
+                   table(data$all_wissen.factor,data$alterkat2)[4],
+                   "",
+                   
+                   table(data$all_wissen.factor,data$sex.factor)[2],
+                   table(data$all_wissen.factor,data$sex.factor)[4],
+                   "",
+                   
+                   table(data$all_wissen.factor,data$smoking.status.factor)[2],
+                   table(data$all_wissen.factor,data$smoking.status.factor)[4],
+                   "",
+                   
+                   table(data$all_wissen.factor,data$schulabschluss.factor.twolevels)[2],
+                   table(data$all_wissen.factor,data$schulabschluss.factor.twolevels)[4],
+                   "",
+                   
+                   table(data$all_wissen.factor,data$allergie3_bekommen.factor)[2],
+                   table(data$all_wissen.factor,data$allergie3_bekommen.factor)[4],
+                   "",
+                   
+                   table(data$all_wissen.factor,data$allergie3_schlimm.factor)[2],
+                   table(data$all_wissen.factor,data$allergie3_schlimm.factor)[4],
+                   "",
+                   
+                   table(data$all_wissen.factor,data$asthma.or.rhinoconj.factor)[2],
+                   table(data$all_wissen.factor,data$asthma.or.rhinoconj.factor)[4],
+                   "",
+                   
+                   table(data$all_wissen.factor,data$par.asthma.factor)[2],
+                   table(data$all_wissen.factor,data$par.asthma.factor)[4],
+                   ""
+)
 
 rows5.wissen6 <- c(round(prop.table(table(data$all_wissen.factor,data$alterkat2),1)[2]*100,2),
-                  round(prop.table(table(data$all_wissen.factor,data$alterkat2),1)[4]*100,2),
-  
-                  round(prop.table(table(data$all_wissen.factor,data$sex.factor),1)[2]*100,2),
-                  round(prop.table(table(data$all_wissen.factor,data$sex.factor),1)[4]*100,2),
-                  "",
-                  
-                  round(prop.table(table(data$all_wissen.factor,data$smoking.status.factor),1)[2]*100,2),
-                  round(prop.table(table(data$all_wissen.factor,data$smoking.status.factor),1)[4]*100,2),
-                  "",
-                  
-                  round(prop.table(table(data$all_wissen.factor,data$schulabschluss.factor.twolevels),1)[2]*100,2),
-                  round(prop.table(table(data$all_wissen.factor,data$schulabschluss.factor.twolevels),1)[4]*100,2),
-                  "",
-                  
-                  round(prop.table(table(data$all_wissen.factor,data$allergie3_bekommen.factor),1)[2]*100,2),
-                  round(prop.table(table(data$all_wissen.factor,data$allergie3_bekommen.factor),1)[4]*100,2),
-                  "",
-                  
-                  round(prop.table(table(data$all_wissen.factor,data$allergie3_schlimm.factor),1)[2]*100,2),
-                  round(prop.table(table(data$all_wissen.factor,data$allergie3_schlimm.factor),1)[4]*100,2),
-                  "",
-                  
-                  round(prop.table(table(data$all_wissen.factor,data$asthma.or.rhinoconj.factor),1)[2]*100,2),
-                  round(prop.table(table(data$all_wissen.factor,data$asthma.or.rhinoconj.factor),1)[4]*100,2),
-                  "",
-                  
-                  round(prop.table(table(data$all_wissen.factor,data$par.asthma.factor),1)[2]*100,2),
-                  round(prop.table(table(data$all_wissen.factor,data$par.asthma.factor),1)[4]*100,2),
-                  "")
+                   round(prop.table(table(data$all_wissen.factor,data$alterkat2),1)[4]*100,2),
+                   "",
+                   
+                   round(prop.table(table(data$all_wissen.factor,data$sex.factor),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen.factor,data$sex.factor),1)[4]*100,2),
+                   "",
+                   
+                   round(prop.table(table(data$all_wissen.factor,data$smoking.status.factor),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen.factor,data$smoking.status.factor),1)[4]*100,2),
+                   "",
+                   
+                   round(prop.table(table(data$all_wissen.factor,data$schulabschluss.factor.twolevels),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen.factor,data$schulabschluss.factor.twolevels),1)[4]*100,2),
+                   "",
+                   
+                   round(prop.table(table(data$all_wissen.factor,data$allergie3_bekommen.factor),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen.factor,data$allergie3_bekommen.factor),1)[4]*100,2),
+                   "",
+                   
+                   round(prop.table(table(data$all_wissen.factor,data$allergie3_schlimm.factor),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen.factor,data$allergie3_schlimm.factor),1)[4]*100,2),
+                   "",
+                   
+                   round(prop.table(table(data$all_wissen.factor,data$asthma.or.rhinoconj.factor),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen.factor,data$asthma.or.rhinoconj.factor),1)[4]*100,2),
+                   "",
+                   
+                   round(prop.table(table(data$all_wissen.factor,data$par.asthma.factor),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen.factor,data$par.asthma.factor),1)[4]*100,2),
+                   "")
 
 rows6.wissen6 <- c("1",
-                  round(exp(coef(age.cat_wissen.glm))[2],2),
-                  "",
-                  "1",
-                  round(exp(coef(sex_wissen.glm))[2],2),
-                  "",
-                  "1",
-                  round(exp(coef(smoking.status_wissen.glm))[2],2),
-                  "",
-                  "1",
-                  round(exp(coef(schulabschluss_wissen.glm))[2],2),
-                  "",
-                  "1",
-                  round(exp(coef(allergie3_bekommen_wissen.glm))[2],2),
-                  "",
-                  "1",
-                  round(exp(coef(allergie3_schlimm_wissen.glm))[2],2),
-                  "",
-                  "1",
-                  round(exp(coef(asthma.or.allergies_wissen.glm))[2],2),
-                  "",
-                  "1",
-                  round(exp(coef(par.asthma_wissen.glm))[2],2),
-                  "")
+                   round(exp(coef(age.cat_wissen.glm))[2],2),
+                   "",
+                   "1",
+                   round(exp(coef(sex_wissen.glm))[2],2),
+                   "",
+                   "1",
+                   round(exp(coef(smoking.status_wissen.glm))[2],2),
+                   "",
+                   "1",
+                   round(exp(coef(schulabschluss_wissen.glm))[2],2),
+                   "",
+                   "1",
+                   round(exp(coef(allergie3_bekommen_wissen.glm))[2],2),
+                   "",
+                   "1",
+                   round(exp(coef(allergie3_schlimm_wissen.glm))[2],2),
+                   "",
+                   "1",
+                   round(exp(coef(asthma.or.allergies_wissen.glm))[2],2),
+                   "",
+                   "1",
+                   round(exp(coef(par.asthma_wissen.glm))[2],2),
+                   "")
 
 rows7.wissen6 <- c("1",
-  
-                            round(exp(confint.default(age.cat_wissen.glm))[2],2), 
-                                round(exp(confint.default(age.cat_wissen.glm))[4],2),
-                            
-                            "1",
-
-                            round(exp(confint.default(sex_wissen.glm))[2],2), 
-                                round(exp(confint.default(sex_wissen.glm))[4],2),
-                            
-                            "1",
-                            
-                            round(exp(confint.default(smoking.status_wissen.glm))[2],2),  
-                                round(exp(confint.default(smoking.status_wissen.glm))[4],2),
-                            
-                            "1",
-                            
-                            round(exp(confint.default(schulabschluss_wissen.glm))[2],2), 
-                                round(exp(confint.default(schulabschluss_wissen.glm))[4],2),
-                            
-                            "1",
-                            
-                            round(exp(confint.default(allergie3_bekommen_wissen.glm))[2],2), 
-                                round(exp(confint.default(allergie3_bekommen_wissen.glm))[4],2),
-                            
-                            "1",
-                                                        
-                            round(exp(confint.default(allergie3_schlimm_wissen.glm))[2],2),
-                                round(exp(confint.default(allergie3_schlimm_wissen.glm))[4],2),
-                            
-                            "1",
-                            
-                            round(exp(confint.default(asthma.or.allergies_wissen.glm))[2],2),
-                                round(exp(confint.default(asthma.or.allergies_wissen.glm))[4],2),
-                            
-                            "1",
-                            
-                            round(exp(confint.default(par.asthma_wissen.glm))[2],2), 
-                                round(exp(confint.default(par.asthma_wissen.glm))[4],2)
-                            )
+                   
+                   round(exp(confint.default(age.cat_wissen.glm))[2],2), 
+                   round(exp(confint.default(age.cat_wissen.glm))[4],2),
+                   
+                   "1",
+                   
+                   round(exp(confint.default(sex_wissen.glm))[2],2), 
+                   round(exp(confint.default(sex_wissen.glm))[4],2),
+                   
+                   "1",
+                   
+                   round(exp(confint.default(smoking.status_wissen.glm))[2],2),  
+                   round(exp(confint.default(smoking.status_wissen.glm))[4],2),
+                   
+                   "1",
+                   
+                   round(exp(confint.default(schulabschluss_wissen.glm))[2],2), 
+                   round(exp(confint.default(schulabschluss_wissen.glm))[4],2),
+                   
+                   "1",
+                   
+                   round(exp(confint.default(allergie3_bekommen_wissen.glm))[2],2), 
+                   round(exp(confint.default(allergie3_bekommen_wissen.glm))[4],2),
+                   
+                   "1",
+                   
+                   round(exp(confint.default(allergie3_schlimm_wissen.glm))[2],2),
+                   round(exp(confint.default(allergie3_schlimm_wissen.glm))[4],2),
+                   
+                   "1",
+                   
+                   round(exp(confint.default(asthma.or.allergies_wissen.glm))[2],2),
+                   round(exp(confint.default(asthma.or.allergies_wissen.glm))[4],2),
+                   
+                   "1",
+                   
+                   round(exp(confint.default(par.asthma_wissen.glm))[2],2), 
+                   round(exp(confint.default(par.asthma_wissen.glm))[4],2)
+)
 
 rows8.wissen6 <- c("1",
-                  round(exp(coef(all_wissen.cat.glm))[2],2),
-                  "",
-                  "1",
-                  round(exp(coef(all_wissen.cat.glm))[3],2),
-                  "",
-                  "1",
-                  round(exp(coef(all_wissen.cat.glm))[4],2),
-                  "",
-                  "1",
-                  round(exp(coef(all_wissen.cat.glm))[5],2),
-                  "",
-                  "1",
-                  round(exp(coef(all_wissen.cat.glm))[6],2),
-                  "",
-                  "1",
-                  round(exp(coef(all_wissen.cat.glm))[7],2),
-                  "",
-                  "1",
-                  round(exp(coef(all_wissen.cat.glm))[8],2),
-                  "")
+                   round(exp(coef(all_wissen.cat.glm))[2],2),
+                   "",
+                   "1",
+                   round(exp(coef(all_wissen.cat.glm))[3],2),
+                   "",
+                   "1",
+                   round(exp(coef(all_wissen.cat.glm))[4],2),
+                   "",
+                   "1",
+                   round(exp(coef(all_wissen.cat.glm))[5],2),
+                   "",
+                   "1",
+                   round(exp(coef(all_wissen.cat.glm))[6],2),
+                   "",
+                   "1",
+                   round(exp(coef(all_wissen.cat.glm))[7],2),
+                   "",
+                   "1",
+                   round(exp(coef(all_wissen.cat.glm))[8],2),
+                   "",
+                   "1",
+                   round(exp(coef(all_wissen.cat.glm))[9],2),
+                   "")
 
 rows9.wissen6 <- c(          
-                  "1",
-                  
-                  round(exp(confint.default(all_wissen.cat.glm))[2],2), 
-                  round(exp(confint.default(all_wissen.cat.glm))[10],2),
-                 
-                  "1",
-                  
-                  round(exp(confint.default(all_wissen.cat.glm))[3],2),  
-                  round(exp(confint.default(all_wissen.cat.glm))[11],2),
-                  
-                  "1",
-                  
-                  round(exp(confint.default(all_wissen.cat.glm))[4],2), 
-                  round(exp(confint.default(all_wissen.cat.glm))[12],2),
-                  
-                  "1",
-                  
-                  round(exp(confint.default(all_wissen.cat.glm))[5],2), 
-                  round(exp(confint.default(all_wissen.cat.glm))[13],2),
-                  
-                  "1",
-                  
-                  round(exp(confint.default(all_wissen.cat.glm))[6],2),
-                  round(exp(confint.default(all_wissen.cat.glm))[14],2),
-                  
-                  "1",
-                  
-                  round(exp(confint.default(all_wissen.cat.glm))[7],2),
-                  round(exp(confint.default(all_wissen.cat.glm))[15],2),
-                  
-                  "1",
-                  
-                  round(exp(confint.default(all_wissen.cat.glm))[8],2), 
-                  round(exp(confint.default(all_wissen.cat.glm))[16],2)
+  "1",
+  
+  round(exp(confint.default(all_wissen.cat.glm))[2],2), 
+  round(exp(confint.default(all_wissen.cat.glm))[11],2),
+  
+  "1",
+  
+  round(exp(confint.default(all_wissen.cat.glm))[3],2),  
+  round(exp(confint.default(all_wissen.cat.glm))[12],2),
+  
+  "1",
+  
+  round(exp(confint.default(all_wissen.cat.glm))[4],2), 
+  round(exp(confint.default(all_wissen.cat.glm))[13],2),
+  
+  "1",
+  
+  round(exp(confint.default(all_wissen.cat.glm))[5],2), 
+  round(exp(confint.default(all_wissen.cat.glm))[14],2),
+  
+  "1",
+  
+  round(exp(confint.default(all_wissen.cat.glm))[6],2),
+  round(exp(confint.default(all_wissen.cat.glm))[15],2),
+  
+  "1",
+  
+  round(exp(confint.default(all_wissen.cat.glm))[7],2),
+  round(exp(confint.default(all_wissen.cat.glm))[16],2),
+  
+  "1",
+  
+  round(exp(confint.default(all_wissen.cat.glm))[8],2), 
+  round(exp(confint.default(all_wissen.cat.glm))[17],2),
+  
+  "1",
+  
+  round(exp(confint.default(all_wissen.cat.glm))[9],2), 
+  round(exp(confint.default(all_wissen.cat.glm))[18],2)
 )
-length(rows7.wissen6)
+
 table_all_wissen6.1 <- cbind(rows4.wissen6, rows5.wissen6) #frequencies
 table_all_wissen6.2 <- cbind(rows6.wissen6, rows7.wissen6) # crude ORs and CIs
 table_all_wissen6.3 <- cbind(rows8.wissen6, rows9.wissen6) # adjusted ORs and CIs
+table_all_wissen6 <- cbind(rows4.wissen6, rows5.wissen6, rows6.wissen6, rows7.wissen6, rows8.wissen6, rows9.wissen6)
 
 #-----------
 # MODELS WITH all_wissen4 (all 4 measures)
@@ -483,78 +494,79 @@ exp(coef(all_wissen4.cat.glm))
 exp(confint.default(all_wissen4.cat.glm))
 
 #table
-# falta arreglar las frecuencias
-rows1.wissen4 <- c("age", "", "sex", "", "", "smok.status", "", "",
+rows1.wissen4 <- c("age", "", "", "sex", "", "", "smok.status", "", "",
                    "ed.level", "", "", "risk.perc", "", "", "", "", "",
                    "asthma.rhin.conj", "", "","parent.asthm", "", "")
 
-rows2.wissen4 <- c("younger", "older", "female", "male", "", "non-smoker", "smoker", "",
+rows2.wissen4 <- c("younger", "older", "", "female", "male", "", "non-smoker", "smoker", "",
                    "haupt.", "real + fachhoch + abitur", "", "allerg.bekomm", "", "",
                    "allerg.schlimm", "", "", "no", "yes", "", "no", "yes","")
-rows3.wissen4 <- c("", "", "", "", "", "", "", "", "", "", "",
+rows3.wissen4 <- c("", "", "", "", "", "", "", "", "", "", "", "",
                    "likely", "unlikely", "", "very bad", "not so bad", "",
                    "", "", "", "", "", "")
-rows4.wissen4 <- c(table(data$all_wissen.factor,data$alterkat2)[2],
-                   table(data$all_wissen.factor,data$alterkat2)[4],
-                   
-                   table(data$all_wissen.factor,data$sex.factor)[2],
-                   table(data$all_wissen.factor,data$sex.factor)[4],
+rows4.wissen4 <- c(table(data$all_wissen4.factor,data$alterkat2)[2],
+                   table(data$all_wissen4.factor,data$alterkat2)[4],
                    "",
                    
-                   table(data$all_wissen.factor,data$smoking.status.factor)[2],
-                   table(data$all_wissen.factor,data$smoking.status.factor)[4],
+                   table(data$all_wissen4.factor,data$sex.factor)[2],
+                   table(data$all_wissen4.factor,data$sex.factor)[4],
                    "",
                    
-                   table(data$all_wissen.factor,data$schulabschluss.factor.twolevels)[2],
-                   table(data$all_wissen.factor,data$schulabschluss.factor.twolevels)[4],
+                   table(data$all_wissen4.factor,data$smoking.status.factor)[2],
+                   table(data$all_wissen4.factor,data$smoking.status.factor)[4],
                    "",
                    
-                   table(data$all_wissen.factor,data$allergie3_bekommen.factor)[2],
-                   table(data$all_wissen.factor,data$allergie3_bekommen.factor)[4],
+                   table(data$all_wissen4.factor,data$schulabschluss.factor.twolevels)[2],
+                   table(data$all_wissen4.factor,data$schulabschluss.factor.twolevels)[4],
                    "",
                    
-                   table(data$all_wissen.factor,data$allergie3_schlimm.factor)[2],
-                   table(data$all_wissen.factor,data$allergie3_schlimm.factor)[4],
+                   table(data$all_wissen4.factor,data$allergie3_bekommen.factor)[2],
+                   table(data$all_wissen4.factor,data$allergie3_bekommen.factor)[4],
                    "",
                    
-                   table(data$all_wissen.factor,data$asthma.or.rhinoconj.factor)[2],
-                   table(data$all_wissen.factor,data$asthma.or.rhinoconj.factor)[4],
+                   table(data$all_wissen4.factor,data$allergie3_schlimm.factor)[2],
+                   table(data$all_wissen4.factor,data$allergie3_schlimm.factor)[4],
                    "",
                    
-                   table(data$all_wissen.factor,data$par.asthma.factor)[2],
-                   table(data$all_wissen.factor,data$par.asthma.factor)[4],
+                   table(data$all_wissen4.factor,data$asthma.or.rhinoconj.factor)[2],
+                   table(data$all_wissen4.factor,data$asthma.or.rhinoconj.factor)[4],
+                   "",
+                   
+                   table(data$all_wissen4.factor,data$par.asthma.factor)[2],
+                   table(data$all_wissen4.factor,data$par.asthma.factor)[4],
                    ""
 )
 
-rows5.wissen4 <- c(round(prop.table(table(data$all_wissen.factor,data$alterkat2),1)[2]*100,2),
-                   round(prop.table(table(data$all_wissen.factor,data$alterkat2),1)[4]*100,2),
-                   
-                   round(prop.table(table(data$all_wissen.factor,data$sex.factor),1)[2]*100,2),
-                   round(prop.table(table(data$all_wissen.factor,data$sex.factor),1)[4]*100,2),
+rows5.wissen4 <- c(round(prop.table(table(data$all_wissen4.factor,data$alterkat2),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen4.factor,data$alterkat2),1)[4]*100,2),
                    "",
                    
-                   round(prop.table(table(data$all_wissen.factor,data$smoking.status.factor),1)[2]*100,2),
-                   round(prop.table(table(data$all_wissen.factor,data$smoking.status.factor),1)[4]*100,2),
+                   round(prop.table(table(data$all_wissen4.factor,data$sex.factor),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen4.factor,data$sex.factor),1)[4]*100,2),
                    "",
                    
-                   round(prop.table(table(data$all_wissen.factor,data$schulabschluss.factor.twolevels),1)[2]*100,2),
-                   round(prop.table(table(data$all_wissen.factor,data$schulabschluss.factor.twolevels),1)[4]*100,2),
+                   round(prop.table(table(data$all_wissen4.factor,data$smoking.status.factor),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen4.factor,data$smoking.status.factor),1)[4]*100,2),
                    "",
                    
-                   round(prop.table(table(data$all_wissen.factor,data$allergie3_bekommen.factor),1)[2]*100,2),
-                   round(prop.table(table(data$all_wissen.factor,data$allergie3_bekommen.factor),1)[4]*100,2),
+                   round(prop.table(table(data$all_wissen4.factor,data$schulabschluss.factor.twolevels),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen4.factor,data$schulabschluss.factor.twolevels),1)[4]*100,2),
                    "",
                    
-                   round(prop.table(table(data$all_wissen.factor,data$allergie3_schlimm.factor),1)[2]*100,2),
-                   round(prop.table(table(data$all_wissen.factor,data$allergie3_schlimm.factor),1)[4]*100,2),
+                   round(prop.table(table(data$all_wissen4.factor,data$allergie3_bekommen.factor),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen4.factor,data$allergie3_bekommen.factor),1)[4]*100,2),
                    "",
                    
-                   round(prop.table(table(data$all_wissen.factor,data$asthma.or.rhinoconj.factor),1)[2]*100,2),
-                   round(prop.table(table(data$all_wissen.factor,data$asthma.or.rhinoconj.factor),1)[4]*100,2),
+                   round(prop.table(table(data$all_wissen4.factor,data$allergie3_schlimm.factor),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen4.factor,data$allergie3_schlimm.factor),1)[4]*100,2),
                    "",
                    
-                   round(prop.table(table(data$all_wissen.factor,data$par.asthma.factor),1)[2]*100,2),
-                   round(prop.table(table(data$all_wissen.factor,data$par.asthma.factor),1)[4]*100,2),
+                   round(prop.table(table(data$all_wissen4.factor,data$asthma.or.rhinoconj.factor),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen4.factor,data$asthma.or.rhinoconj.factor),1)[4]*100,2),
+                   "",
+                   
+                   round(prop.table(table(data$all_wissen4.factor,data$par.asthma.factor),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen4.factor,data$par.asthma.factor),1)[4]*100,2),
                    "")
 
 rows6.wissen4 <- c("1",
@@ -624,10 +636,10 @@ rows7.wissen4 <- c("1",
 )
 
 rows8.wissen4 <- c("1",
-                   round(exp(coef(all_wissen4.cat.glm))[2],2),
+                   round(exp(coef(all_wissen4.cat.glm))[3],2),
                    "",
                    "1",
-                   round(exp(coef(all_wissen4.cat.glm))[3],2),
+                   round(exp(coef(all_wissen4.cat.glm))[2],2),
                    "",
                    "1",
                    round(exp(coef(all_wissen4.cat.glm))[4],2),
@@ -647,17 +659,17 @@ rows8.wissen4 <- c("1",
                    "1",
                    round(exp(coef(all_wissen4.cat.glm))[9],2),
                    "")
-length(rows9.wissen4)
+
 rows9.wissen4 <- c(          
   "1",
   
-  round(exp(confint.default(all_wissen4.cat.glm))[2],2), 
-  round(exp(confint.default(all_wissen4.cat.glm))[11],2),
+  round(exp(confint.default(all_wissen4.cat.glm))[3],2), 
+  round(exp(confint.default(all_wissen4.cat.glm))[12],2),
   
   "1",
   
-  round(exp(confint.default(all_wissen4.cat.glm))[3],2),  
-  round(exp(confint.default(all_wissen4.cat.glm))[12],2),
+  round(exp(confint.default(all_wissen4.cat.glm))[2],2),  
+  round(exp(confint.default(all_wissen4.cat.glm))[11],2),
   
   "1",
   
@@ -693,11 +705,12 @@ rows9.wissen4 <- c(
 table_all_wissen4.1 <- cbind(rows4.wissen4, rows5.wissen4) #frequencies
 table_all_wissen4.2 <- cbind(rows6.wissen4, rows7.wissen4) # crude ORs and CIs
 table_all_wissen4.3 <- cbind(rows8.wissen4, rows9.wissen4) # adjusted ORs and CIs
+table_all_wissen4 <- cbind(rows4.wissen4, rows5.wissen4, rows6.wissen4, rows7.wissen4, rows8.wissen4, rows9.wissen4)
 
 #-----------
 # MODELS WITH all_wissen5 (all 5 measures)
 #-----------
-
+table(data$all_wissen5.factor)
 # all_wissen5
 # crude models:
 # age categorical
@@ -795,77 +808,79 @@ exp(coef(all_wissen5.cat.glm))
 exp(confint.default(all_wissen5.cat.glm))
 
 #table
-rows1.wissen5 <- c("age", "", "sex", "", "", "smok.status", "", "",
+rows1.wissen5 <- c("age", "", "", "sex", "", "", "smok.status", "", "",
                    "ed.level", "", "", "risk.perc", "", "", "", "", "",
                    "asthma.rhin.conj", "", "","parent.asthm", "", "")
 
-rows2.wissen5 <- c("younger", "older", "female", "male", "", "non-smoker", "smoker", "",
+rows2.wissen5 <- c("younger", "older", "", "female", "male", "", "non-smoker", "smoker", "",
                    "haupt.", "real + fachhoch + abitur", "", "allerg.bekomm", "", "",
                    "allerg.schlimm", "", "", "no", "yes", "", "no", "yes","")
-rows3.wissen5 <- c("", "", "", "", "", "", "", "", "", "", "",
+rows3.wissen5 <- c("", "", "", "", "", "", "", "", "", "", "", "",
                    "likely", "unlikely", "", "very bad", "not so bad", "",
                    "", "", "", "", "", "")
-rows4.wissen5 <- c(table(data$all_wissen.factor,data$alterkat2)[2],
-                   table(data$all_wissen.factor,data$alterkat2)[4],
-                   
-                   table(data$all_wissen.factor,data$sex.factor)[2],
-                   table(data$all_wissen.factor,data$sex.factor)[4],
+rows4.wissen5 <- c(table(data$all_wissen5.factor,data$alterkat2)[2],
+                   table(data$all_wissen5.factor,data$alterkat2)[4],
                    "",
                    
-                   table(data$all_wissen.factor,data$smoking.status.factor)[2],
-                   table(data$all_wissen.factor,data$smoking.status.factor)[4],
+                   table(data$all_wissen5.factor,data$sex.factor)[2],
+                   table(data$all_wissen5.factor,data$sex.factor)[4],
                    "",
                    
-                   table(data$all_wissen.factor,data$schulabschluss.factor.twolevels)[2],
-                   table(data$all_wissen.factor,data$schulabschluss.factor.twolevels)[4],
+                   table(data$all_wissen5.factor,data$smoking.status.factor)[2],
+                   table(data$all_wissen5.factor,data$smoking.status.factor)[4],
                    "",
                    
-                   table(data$all_wissen.factor,data$allergie3_bekommen.factor)[2],
-                   table(data$all_wissen.factor,data$allergie3_bekommen.factor)[4],
+                   table(data$all_wissen5.factor,data$schulabschluss.factor.twolevels)[2],
+                   table(data$all_wissen5.factor,data$schulabschluss.factor.twolevels)[4],
                    "",
                    
-                   table(data$all_wissen.factor,data$allergie3_schlimm.factor)[2],
-                   table(data$all_wissen.factor,data$allergie3_schlimm.factor)[4],
+                   table(data$all_wissen5.factor,data$allergie3_bekommen.factor)[2],
+                   table(data$all_wissen5.factor,data$allergie3_bekommen.factor)[4],
                    "",
                    
-                   table(data$all_wissen.factor,data$asthma.or.rhinoconj.factor)[2],
-                   table(data$all_wissen.factor,data$asthma.or.rhinoconj.factor)[4],
+                   table(data$all_wissen5.factor,data$allergie3_schlimm.factor)[2],
+                   table(data$all_wissen5.factor,data$allergie3_schlimm.factor)[4],
                    "",
                    
-                   table(data$all_wissen.factor,data$par.asthma.factor)[2],
-                   table(data$all_wissen.factor,data$par.asthma.factor)[4],
+                   table(data$all_wissen5.factor,data$asthma.or.rhinoconj.factor)[2],
+                   table(data$all_wissen5.factor,data$asthma.or.rhinoconj.factor)[4],
+                   "",
+                   
+                   table(data$all_wissen5.factor,data$par.asthma.factor)[2],
+                   table(data$all_wissen5.factor,data$par.asthma.factor)[4],
                    ""
 )
 
-rows5.wissen5 <- c(round(prop.table(table(data$all_wissen.factor,data$alterkat2),1)[2]*100,2),
-                   round(prop.table(table(data$all_wissen.factor,data$alterkat2),1)[4]*100,2),
-                   
-                   round(prop.table(table(data$all_wissen.factor,data$sex.factor),1)[2]*100,2),
-                   round(prop.table(table(data$all_wissen.factor,data$sex.factor),1)[4]*100,2),
+rows5.wissen5 <- c(round(prop.table(table(data$all_wissen5.factor,data$alterkat2),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen5.factor,data$alterkat2),1)[4]*100,2),
                    "",
                    
-                   round(prop.table(table(data$all_wissen.factor,data$smoking.status.factor),1)[2]*100,2),
-                   round(prop.table(table(data$all_wissen.factor,data$smoking.status.factor),1)[4]*100,2),
+                   round(prop.table(table(data$all_wissen5.factor,data$sex.factor),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen5.factor,data$sex.factor),1)[4]*100,2),
                    "",
                    
-                   round(prop.table(table(data$all_wissen.factor,data$schulabschluss.factor.twolevels),1)[2]*100,2),
-                   round(prop.table(table(data$all_wissen.factor,data$schulabschluss.factor.twolevels),1)[4]*100,2),
+                   round(prop.table(table(data$all_wissen5.factor,data$smoking.status.factor),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen5.factor,data$smoking.status.factor),1)[4]*100,2),
                    "",
                    
-                   round(prop.table(table(data$all_wissen.factor,data$allergie3_bekommen.factor),1)[2]*100,2),
-                   round(prop.table(table(data$all_wissen.factor,data$allergie3_bekommen.factor),1)[4]*100,2),
+                   round(prop.table(table(data$all_wissen5.factor,data$schulabschluss.factor.twolevels),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen5.factor,data$schulabschluss.factor.twolevels),1)[4]*100,2),
                    "",
                    
-                   round(prop.table(table(data$all_wissen.factor,data$allergie3_schlimm.factor),1)[2]*100,2),
-                   round(prop.table(table(data$all_wissen.factor,data$allergie3_schlimm.factor),1)[4]*100,2),
+                   round(prop.table(table(data$all_wissen5.factor,data$allergie3_bekommen.factor),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen5.factor,data$allergie3_bekommen.factor),1)[4]*100,2),
                    "",
                    
-                   round(prop.table(table(data$all_wissen.factor,data$asthma.or.rhinoconj.factor),1)[2]*100,2),
-                   round(prop.table(table(data$all_wissen.factor,data$asthma.or.rhinoconj.factor),1)[4]*100,2),
+                   round(prop.table(table(data$all_wissen5.factor,data$allergie3_schlimm.factor),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen5.factor,data$allergie3_schlimm.factor),1)[4]*100,2),
                    "",
                    
-                   round(prop.table(table(data$all_wissen.factor,data$par.asthma.factor),1)[2]*100,2),
-                   round(prop.table(table(data$all_wissen.factor,data$par.asthma.factor),1)[4]*100,2),
+                   round(prop.table(table(data$all_wissen5.factor,data$asthma.or.rhinoconj.factor),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen5.factor,data$asthma.or.rhinoconj.factor),1)[4]*100,2),
+                   "",
+                   
+                   round(prop.table(table(data$all_wissen5.factor,data$par.asthma.factor),1)[2]*100,2),
+                   round(prop.table(table(data$all_wissen5.factor,data$par.asthma.factor),1)[4]*100,2),
                    "")
 
 rows6.wissen5 <- c("1",
@@ -935,10 +950,10 @@ rows7.wissen5 <- c("1",
 )
 
 rows8.wissen5 <- c("1",
-                   round(exp(coef(all_wissen5.cat.glm))[2],2),
+                   round(exp(coef(all_wissen5.cat.glm))[3],2),
                    "",
                    "1",
-                   round(exp(coef(all_wissen5.cat.glm))[3],2),
+                   round(exp(coef(all_wissen5.cat.glm))[2],2),
                    "",
                    "1",
                    round(exp(coef(all_wissen5.cat.glm))[4],2),
@@ -958,17 +973,17 @@ rows8.wissen5 <- c("1",
                    "1",
                    round(exp(coef(all_wissen5.cat.glm))[9],2),
                    "")
-length(rows9.wissen5)
+
 rows9.wissen5 <- c(          
   "1",
   
-  round(exp(confint.default(all_wissen5.cat.glm))[2],2), 
-  round(exp(confint.default(all_wissen5.cat.glm))[11],2),
+  round(exp(confint.default(all_wissen5.cat.glm))[3],2), 
+  round(exp(confint.default(all_wissen5.cat.glm))[12],2),
   
   "1",
   
-  round(exp(confint.default(all_wissen5.cat.glm))[3],2),  
-  round(exp(confint.default(all_wissen5.cat.glm))[12],2),
+  round(exp(confint.default(all_wissen5.cat.glm))[2],2),  
+  round(exp(confint.default(all_wissen5.cat.glm))[11],2),
   
   "1",
   
