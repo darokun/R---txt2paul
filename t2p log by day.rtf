@@ -1,0 +1,167 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red26\green26\blue26;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\b\fs24 \cf0 Monday, 23 03 15
+\b0 \
+	- created files "txt2paul exp 1.R" and "multiple imputation.R"\
+	- read and vaguely explored dataset\
+	- created data subset (data1-15) according to codebuch*\
+	- observed missingness map for each subset\
+	- Missings patterns:\
+		- data1: 1-119 of gruppe\
+		- data2: ALL Ausfallgrund\
+		- data5: \
+			- SEVERAL in andere_welche, all *_betrieb_zahl except kuh_betrieb_zahl, 			andere_betrieb_welche.\
+			- MODERATE andere, ziegen, schaf, pferde, schwein, hase, kuh_betrieb_zahl, 			huhn, hund\
+			- LESS rest\
+		- data6: SEVERAL Ackergras\
+		- data8: ALL control (duh), several non-responders from intervention (NAs in all 		variables).\
+		- data9: same as with data8\
+		- data10: same as w data8 and 9\
+		- data11: same as w data8,9,10 except sonstiges (complete).\
+		- data12: FEA. Almost everything missing\
+		- data13: FEA. Almost everything missing except befdatum_MF1**\
+		- data14: FEA. Almost everything missing except befdatum_MF2**\
+		- data15: FEA. Almost everything missing except befdatum_MF3**\
+	
+\b  - Perform random effects model clustered by studienort?
+\b0 \
+\
+* two variables 199 and 200: allergie_bekommen_nachher + allergie_schlimm_nachher nicht im Codebuch\
+** confirm that data13 14 and 15 will not be used because only basis und nachherbefragung will be taken into account.\
+\
+---\
+\
+
+\b Tuesday, 24 03 15
+\b0 \
+\pard\pardeftab720
+
+\f1\fs26 \cf2 Minuta reunion con Katja:\
+1. Do baseline analyses of the 238 subjects:\
+\'a0\'a0\'a0 - respiratory symptoms / risk assessment (q. 29 and 30) vs:\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 - kleidung\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 - attitude towards kleidung tragen (q. 25)\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 - behavior q. 23\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 - absicht (intenci\'f3n) q. 24\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 - peer behavior q. 26 q. 27\
+\
+2. Compare baseline characteristics between 3 groups: **consider adjusting for multiple testing**??\
+group 1: 113 drop-outs / missings\
+group 2: 68 follow up only before info\
+group 3: 49 before and after info\
+\
+3. From the 49 group, compare intervention yes vs. no.\
+\
+4. How many of the 49 are in which intervention group?\
+\
+Para el 9 de Abril 2015.\
+\
+--- \
+\
+
+\b Wednesday, 25 03 15
+\b0 \
+- done baseline sociodemographic descriptive analyses on 238 subjects (data1).\
+- done baseline respiratory symptoms descriptive analyses on 238 subjects (data3).\
+- started hypothesis testing on age according to categorical sociodemographic variables (data1) to see if it is worth it to include tables on this or not.\
+- started creating only one variable for asthma (comprising qq. 1 and 2 from Fragebogen).\
+- created tables 1 and 2 in docx file. \
+\
+Next steps:\
+- I still need to comprise these into a single variable, and add q. 5. Also need to do the same process for qq. 3+4, 6+7, 8+9.\
+- Describe qq. 29+30 (risk assessment) and include them along with data3 to run the analyses on Wissen (data4), and qq. 23, 24, 25, 26 + 27.\
+\
+---\
+\
+
+\b Thursday, 26 03 15
+\b0 \
+
+\f0\fs24 \cf0 - created comprised variables on data3.\
+- analyzed data3 by sex.\
+- created table 3 in docx file. \
+\
+Next steps:\
+
+\f1\fs26 \cf2 - Describe qq. 29+30 (risk assessment) and include them along with data3 to run the analyses on Wissen (data4), and qq. 23, 24, 25, 26 + 27.\
+- Try to do this by modelling.\
+\
+---\
+\
+
+\b Friday, 27 03 15\
+
+\b0 - Created file 4. in R.\
+- Created tables 4 and 5 in docx file.\
+\
+To do:\
+- check decimal point requirements from the journal where it is going to get published.\
+- check age distribution with box plots to try to understand how it was categorized.\
+\
+Next steps:\
+- Describe qq. 29+30 (risk assessment) and include them along with data3 to run the analyses on Wissen (data4), and qq. 23, 24, 25, 26 + 27. \
+- Try to do this by modelling??\
+ \
+---\
+\
+
+\b Monday, 30 03 15\
+
+\b0 - Worked only on translations\
+\
+---\
+\
+
+\b Tuesday, 31 03 15\
+
+\b0 - Made age plots (file 2. in R).\
+- Made tables 6, 7 and 8 from docx file.\
+- Started crossing variables\
+\
+Next steps:\
+- Ask Ronald about multiple testing. DONE --> No MT\
+- Do prop.tables for part VI. in file 4. HALF DONE (01.04.15)\
+\
+Minuta de reuni\'f3n con Ronald:\
+- Colapsar variables de 5 niveles en 3 niveles (1+2,3,4+5) DONE (01.04.15)\
+- Rehacer tablas utilizando covariables en horizontal y exposures en vertical IN PROCESS (01.04.15)\
+- Incluir cumulative percentages en las filas en todas las tablas (que las filas den 100%) DONE (01.04.15)\
+- Calcular medidas de asociaci\'f3n (OR vs. RR)\
+\
+---\
+\
+
+\b Wednesday, 01 04 15\
+
+\b0 - Did half of the prop.tables for part VI. in file 4.\
+- Collapsed variables from 5 to 3 levels.\
+- Did part of the tables with the exposure on horizontal and outcome on vertical.\
+- Included cum percentages by row in all tables.\
+- Did hypothesis testing for half of part VI. in file 4.\
+\
+---\
+\
+
+\b Thursday, 02 04 15\
+
+\b0 - Completed info on tables 9:15\
+- Did hypothesis testing until III. Risk perception and Wissen.\
+\
+---\
+\
+
+\b Tuesday 07 04 15\
+
+\b0 - Created subsets for dropouts, only before and before + after info subjects.\
+\
+To do: cambiarle el nombre al archivo 5. (dice 117... cambiarlo por 121 vs 117 o algo as\'ed)\
+cambiar nombre a archivo 6.\
+revisar errores en file 7.\
+\
+
+\f0\fs24 \cf0 \
+}
