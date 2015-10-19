@@ -294,7 +294,7 @@ barplot(c(count.zero, count.only1, count.only2, count.only3, count.only4, count.
         col = "#444444", 
         xlab = "Number of correct preventive measures",
         main = "Frequency of correct preventive measures (n = 238)",
-        ylim = range(-7,105))
+        ylim = range(-10,105))
 text(0.7, -5, "0")
 text(1.85, -5, "1")
 text(3, -5, "2")
@@ -329,7 +329,7 @@ count.atleast0 <- sum(data$check==6) + sum(data$check==5) +
 barplot(c(count.atleast0, count.atleast1, count.atleast2, count.atleast3, 
           count.atleast4, count.atleast5, count.atleast6),
         col = "#444444",
-        ylim = range(-15,260),
+        ylim = range(-20,260),
         xlab = "Number of correct preventive measures",
         ylab = "Frequency",
         main = "Frequency of correct preventive measures (n = 238)")
