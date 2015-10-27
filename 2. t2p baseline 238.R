@@ -349,6 +349,60 @@ text(5.5, 216, count.atleast4)
 text(6.7, 156, count.atleast5) 
 text(7.9, 63, count.atleast6)
 
+# RISK PERCEPTION
+# join allergie_bekommen and allergie_schlimm into just one variable: risk_perception,
+# according to Katja's email from Oct 20th 2015
+???
+# intructions: "You could sum up the two scores (taking the direction into account) and than use the 75th percentile as cut-off in order to define those with a high level of risk perception"
+
+# 1. create data$allergie_bekommen_reverse, reversing the score into the correct direction
+# The correct direction should be: 1 (likely) = high risk perception level, 5 (unlikely) = low risk perception level
+
+data$allergie_bekommen_reverse <- NULL
+table(data$allergie_bekommen)
+for(i in 1:length(data$allergie_bekommen)) {
+  if(data$allergie_bekommen[i]==1) {
+    data$allergie_bekommen_reverse[i] <- 5
+  }
+  if(data$allergie_bekommen[i]==2) {
+    data$allergie_bekommen_reverse[i] <- 4
+  }
+  if(data$allergie_bekommen[i]==3) {
+    data$allergie_bekommen_reverse[i] <- 3
+  }
+  if(data$allergie_bekommen[i]==4) {
+    data$allergie_bekommen_reverse[i] <- 2
+  }
+  if(data$allergie_bekommen[i]==5) {
+    data$allergie_bekommen_reverse[i] <- 1
+  }
+}
+table(data$allergie_bekommen_reverse)
+
+# 2. sum up data$allergie_bekommen_reverse + data$allergie_schlimm into a new vector (rp)
+rp <- NULL
+rp <- data$allergie_bekommen_reverse + data$allergie_schlimm
+
+# 3. Determine the 75th percentile for rp
+quantile(rp, 0.75) # 7
+
+# 4. Define those at a high level of risk perception (>=7), and add to new variable data$risk_perception, where 0=ref level=high risk perception level and 1=low risk perception level.
+# The ideal is that people have a higher risk perception level.
+data$risk_perception <- NULL
+
+for(i in 1:length(rp)) {
+  if(rp[i]>=7) {
+    data$risk_perception[i] <- 0
+  }
+  else {
+    data$risk_perception[i] <- 1
+  }
+}
+
+# 5. convert data$risk_perception into factor, and add labels
+data$risk_perception.factor <- factor(data$risk_perception, labels=c("high risk perception level", "low risk perception level"))
+
+
 #---------------#
 # END OF SCRIPT #
 #---------------#
