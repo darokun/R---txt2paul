@@ -57,7 +57,7 @@ data1 <- data[,c(1:6,14:21)] # data1 = soziodemographie
 sex.labels <- c("male","female")
 data$sex.factor <- factor(data$sex, labels = sex.labels)
 studienort.labels <- c("Miesbach","Rosenheim", "Muehldorf", "Traunstein", "Schoengeising", "Andechs", "Erding", "Bad Heilbrunn", "Ebersberg", "Ingolstadt")
-studienort.factor <- factor(data$studienort, labels = studienort.labels)
+data$studienort.factor <- factor(data$studienort, labels = studienort.labels)
 alterkat.labels <- c("18-20", "21-24", "25-44")
 alterkat.factor <- factor(data$alterkat,levels=c("1","2","3"),labels=alterkat.labels)
 no.yes.labels <- c("No", "Yes")
@@ -200,7 +200,7 @@ data$all_wissen2 <- NULL
 data$all_wissen1 <- NULL
 data$all_wissen0 <- NULL
 
-data$check <- apply(data[,324:329],1,sum)
+data$check <- apply(data[,325:330],1,sum)
 count.only6 <- sum(data$check==6) # all 6 correct
 count.only5 <- sum(data$check==5) # just 5 correct
 count.only4 <- sum(data$check==4) # just 4 correct
@@ -290,6 +290,8 @@ cbind(table(data$all_wissen0.factor), round(prop.table(table(data$all_wissen0.fa
 
 
 # PLOTS
+# spdf("myplot.pdf")
+par(mfrow=c(1,1))
 barplot(c(count.zero, count.only1, count.only2, count.only3, count.only4, count.only5, count.only6),
         col = "#444444", 
         xlab = "Number of correct preventive measures",
@@ -348,6 +350,7 @@ text(4.3, 239, count.atleast3)
 text(5.5, 216, count.atleast4)
 text(6.7, 156, count.atleast5) 
 text(7.9, 63, count.atleast6)
+# dev.off()
 
 # RISK PERCEPTION
 # join allergie_bekommen and allergie_schlimm into just one variable: risk_perception,
@@ -406,3 +409,4 @@ data$risk_perception.factor <- factor(data$risk_perception, labels=c("high risk 
 #---------------#
 # END OF SCRIPT #
 #---------------#
+

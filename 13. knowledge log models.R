@@ -1096,3 +1096,8 @@ exp(confint.default(all_wissen5.cat.glm))
 # table_all_wissen5.2 <- cbind(rows6.wissen5, rows7.wissen5) # crude ORs and CIs
 # table_all_wissen5.3 <- cbind(rows8.wissen5, rows9.wissen5) # adjusted ORs and CIs
 # table_all_wissen5 <- cbind(rows4.wissen5, rows5.wissen5, rows6.wissen5, rows7.wissen5, rows8.wissen5, rows9.wissen5)
+
+
+#####################
+### END OF SCRIPT ###
+#####################
