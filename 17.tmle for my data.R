@@ -283,6 +283,7 @@ for(i in 1:length(int.data.wo.nas$all_wissen_nachher)) {
 
 library(tmle)
 # my variables
+# detach("package:SuperLearner", unload=TRUE)
 A <- int.data.wo.nas$gruppe # treatment
 Delta <- na.vector.all_wissen_nachher # missings
 W <- matrix(c(int.data.wo.nas$sex,

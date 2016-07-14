@@ -112,7 +112,7 @@ cbind(table(int.data.wo.nas$all_wissen_nachher.factor), round(prop.table(table(i
 # all wissen 0-5 correct
 int.data.wo.nas$all_wissen_nachher5 <- NULL
 int.data.wo.nas$all_wissen_nachher4 <- NULL
-# int.data.wo.nas$all_wissen_nachher3 <- NULL
+int.data.wo.nas$all_wissen_nachher3 <- NULL
 # int.data.wo.nas$all_wissen_nachher2 <- NULL
 # int.data.wo.nas$all_wissen_nachher1 <- NULL
 # int.data.wo.nas$all_wissen_nachher0 <- NULL
@@ -173,6 +173,24 @@ int.data.wo.nas$all_wissen_nachher4.factor <- factor(int.data.wo.nas$all_wissen_
 # int.data.wo.nas$all_wissen_nachher==1: at least 4 positive measures
 # int.data.wo.nas$all_wissen_nachher==0: not at least 4 positive measures
 cbind(table(int.data.wo.nas$all_wissen_nachher4.factor), round(prop.table(table(int.data.wo.nas$all_wissen_nachher4.factor)),4))
+
+# 3
+int.data.wo.nas$all_wissen_nachher3 <- NULL
+for (i in 1:length(check)) {
+  if(is.na(check)[i]) {
+    int.data.wo.nas$all_wissen_nachher3[i] <- NA
+  }
+  else if(check[i]>=3) {
+    int.data.wo.nas$all_wissen_nachher3[i] <- 1
+  } 
+  else {
+    int.data.wo.nas$all_wissen_nachher3[i] <- 0
+  }
+}
+int.data.wo.nas$all_wissen_nachher3.factor <- factor(int.data.wo.nas$all_wissen_nachher3, labels = all_wissen.labels)
+# int.data.wo.nas$all_wissen_nachher==1: at least 3 positive measures
+# int.data.wo.nas$all_wissen_nachher==0: not at least 3 positive measures
+cbind(table(int.data.wo.nas$all_wissen_nachher3.factor), round(prop.table(table(int.data.wo.nas$all_wissen_nachher3.factor)),4))
 
 
 # cbind(table(int.data.wo.nas$all_wissen_nachher5.factor, int.data.wo.nas$gruppe), round(prop.table(table(int.data.wo.nas$all_wissen_nachher5.factor,int.data.wo.nas$gruppe)),4))
@@ -584,8 +602,6 @@ summary(int.all_wissen_nachher.cat.glm)
 exp(coef(int.all_wissen_nachher.cat.glm))
 exp(confint.default(int.all_wissen_nachher.cat.glm))
 
-
-  
-
-
-
+#---------------#
+# END OF SCRIPT #
+#---------------#

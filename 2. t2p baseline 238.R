@@ -288,7 +288,6 @@ data$all_wissen0.factor <- factor(data$all_wissen0, labels = "correct")
 # data$all_wissen==0: not at least 0 positive measures
 cbind(table(data$all_wissen0.factor), round(prop.table(table(data$all_wissen0.factor)),4))
 
-
 # PLOTS
 # spdf("myplot.pdf")
 par(mfrow=c(1,1))
