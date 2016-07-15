@@ -1,62 +1,102 @@
 # install.packages("devtools") #if you don't have it already
 # install.packages("httr")
-# install.packages("SuperLearner")
 library(devtools)
 library(httr)
 install_github("lendle/tmlecte")
 library(tmlecte)
-library(SuperLearner)
-# ?tmle.cte
-
-# treatment
-A <- int.data.wo.nas$gruppe 
-
-# missings
-Delta <- na.vector.all_wissen_nachher 
-
-# covariates
-B <- matrix(c(int.data.wo.nas$sex,
-              int.data.wo.nas$alterkat2.binary,
-              int.data.wo.nas$schulabschluss.binary,
-              int.data.wo.nas$smoking.status,
-              int.data.wo.nas$asthma.or.rhinoconj, 
-              int.data.wo.nas$risk_perception,
-              int.data.wo.nas$par.asthma,
-              int.data.wo.nas$all_wissen),
-            ncol=8)
-colnames(B) <- paste("B",1:8, sep="") 
-head(B)
-
-
 
 # wissen6
 # outcome
 Y <- int.data.wo.nas$all_wissen_nachher
 
 # att (non-treated)
+set.seed(1986)
+a <- 0
+att6.0 <- tmle.cte(Y=Y,A=A,B=W, Delta=Delta, a=a, family= "binomial",
+                 Q.method = "SL", g.method = "SL", gDelta.method = "SL",
+                 g.SL.library = SL.library,
+                 gDelta.SL.library = SL.library,
+                 Q.SL.library = SL.library)
+
+set.seed(1986)
 a <- 1
-att6 <- tmle.cte(Y=Y,A=A,B=B, Delta=Delta, a=a, family= "binomial",
+att6.1 <- tmle.cte(Y=Y,A=A,B=W, Delta=Delta, a=a, family= "binomial",
                  Q.method = "SL", g.method = "SL", gDelta.method = "SL",
-                 g.SL.library = c("SL.glm", "SL.step", "SL.glm.interaction"),
-                 gDelta.SL.library = c("SL.glm", "SL.step", "SL.glm.interaction"),
-                 Q.SL.library = c("SL.glm", "SL.step", "SL.glm.interaction"))
-att6
+                 g.SL.library = SL.library,
+                 gDelta.SL.library = SL.library,
+                 Q.SL.library = SL.library)
+att6.0
+att6.1
 
-att6 <- tmle.cte(Y=Y,A=A,B=B, Delta=Delta, a=a, family= "binomial",
-                 Q.method = "SL", g.method = "SL", gDelta.method = "SL",
-                 g.SL.library = c("SL.glm", "SL.step", "SL.glm.interaction"),
-                 gDelta.SL.library = c("SL.glm", "SL.step", "SL.glm.interaction"),
-                 Q.SL.library = c("SL.glm", "SL.step", "SL.glm.interaction"))
+#---
+# wissen5
+# outcome
+Y <- int.data.wo.nas$all_wissen_nachher5
 
+# att (non-treated)
+set.seed(1986)
+a <- 0
+att5.0 <- tmle.cte(Y=Y,A=A,B=W, Delta=Delta, a=a, family= "binomial",
+                   Q.method = "SL", g.method = "SL", gDelta.method = "SL",
+                   g.SL.library = SL.library,
+                   gDelta.SL.library = SL.library,
+                   Q.SL.library = SL.library)
 
+set.seed(1986)
+a <- 1
+att5.1 <- tmle.cte(Y=Y,A=A,B=W, Delta=Delta, a=a, family= "binomial",
+                   Q.method = "SL", g.method = "SL", gDelta.method = "SL",
+                   g.SL.library = SL.library,
+                   gDelta.SL.library = SL.library,
+                   Q.SL.library = SL.library)
+att5.0
+att5.1
 
+#---
+# wissen4
+# outcome
+Y <- int.data.wo.nas$all_wissen_nachher5
+
+# att (non-treated)
+set.seed(1986)
+a <- 0
+att4.0 <- tmle.cte(Y=Y,A=A,B=W, Delta=Delta, a=a, family= "binomial",
+                   Q.method = "SL", g.method = "SL", gDelta.method = "SL",
+                   g.SL.library = SL.library,
+                   gDelta.SL.library = SL.library,
+                   Q.SL.library = SL.library)
+
+set.seed(1986)
+a <- 1
+att4.1 <- tmle.cte(Y=Y,A=A,B=W, Delta=Delta, a=a, family= "binomial",
+                   Q.method = "SL", g.method = "SL", gDelta.method = "SL",
+                   g.SL.library = SL.library,
+                   gDelta.SL.library = SL.library,
+                   Q.SL.library = SL.library)
+att4.0
+att4.1
+
+#---
+# testing without covariates (refer to script 17.)
+# Y <- int.data.wo.nas$all_wissen_nachher
+# a <- 0
+# att6.0 <- tmle.cte(Y=Y,A=A,B=B, Delta=Delta, a=a, family= "binomial",
+#                  Q.method = "SL", g.method = "SL", gDelta.method = "SL",
+#                  g.SL.library = SL.library,
+#                  gDelta.SL.library = SL.library,
+#                  Q.SL.library = SL.library))
+# 
+# a <- 1
 # att6 <- tmle.cte(Y=Y,A=A,B=B, Delta=Delta, a=a, family= "binomial",
 #                  Q.method = "SL", g.method = "SL", gDelta.method = "SL",
-#                  g.SL.library = c("SL.glm", "SL.step", "SL.glm.interaction"),
-#                  gDelta.SL.library = c("SL.glm", "SL.step", "SL.glm.interaction"),
-#                  Q.SL.library = c("SL.glm", "SL.step", "SL.glm.interaction"))
+#                  g.SL.library = SL.library,
+#                  gDelta.SL.library = SL.library,
+#                  Q.SL.library = SL.library))
+# att6.0
+# att6.1
 
 
 
-warnings()
-
+#---------------#
+# END OF SCRIPT #
+#---------------#
