@@ -1,0 +1,49 @@
+---
+title: ''
+author: "Daloha Rodr&iacute;guez-Molina"
+date: "July 16, 2016"
+output: html_document
+---
+
+## Effect of an educational intervention on knowledge about preventive  measures against occupational allergies in farm apprentices: a targeted maximum likelihood estimation approach
+
+#### Daloha Rodriguez-Molina, Swaantje Barth, Constanze Rossmann, Katja Radon, Veronika Karnowski
+
+**BACKGROUND:** Occupational asthma and allergies are potentially
+preventable diseases that affect between 5 and 15% of the adult
+working population. However, the acceptance and use of preventive
+measures is often low. The aim of this randomized controlled study was
+to estimate the average treatment effect of an educational
+intervention designed to improve the knowledge of preventive measures
+against asthma and allergies in farm apprentices from Bavaria
+(Southern Germany). 
+
+**METHODS:** Farm apprentices from Bavaria were asked to complete a
+questionnaire evaluating their knowledge about preventive measures
+including use of personal protective equipment as well as personal and
+workplace hygiene measures. Eligible apprentices were randomized by
+school site, and assigned to either a control or an intervention
+group. The intervention consisted of a short educational video about
+preventive measures against occupational asthma and allergies. Six
+months after the intervention, subjects were asked to complete a
+post-intervention questionnaire, similar to the one at baseline. Of
+the 116 apprentices (70 intervention group, 46 control group) who
+answered the baseline questionnaire only 47 subjects (41.5%; 17
+intervention group, 30 control group) also completed the follow-up
+questionnaire. We therefore estimated the causal effect of the
+intervention using targeted maximum likelihood estimation, a
+double-robust and asymptotically normal and efficient method. Models
+were controlled for age, sex, smoking status, education level, degree
+of risk perception, personal history of asthma or rhinoconjunctivitis,
+family history of asthma, and baseline knowledge of preventive
+measures.
+
+**RESULTS:** Based on the targeted maximum likelihood estimation, the
+intervention would have increased the proportion of correct answers on
+all six preventive measures by 18.5% (95% confidence interval: 9.0% -
+27.9%) had all participants received the intervention versus had they
+all been in the control group. 
+
+**CONCLUSIONS:** These findings indicate that a short educational video is
+effective in improving the knowledge about preventive measures against
+asthma and allergies in young Bavarian agriculture apprentices.
