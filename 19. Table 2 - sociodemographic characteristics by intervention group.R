@@ -32,7 +32,6 @@ data.wo.nas$completed.table2[data.wo.nas$four.groups==4] <- 1
 int.data.wo.nas$completed.table2 <- NULL
 int.data.wo.nas$completed.table2 <- data.wo.nas$completed.table2[115:230]
 
-17+13+9+8
 # age
 cbind(table(int.data.wo.nas$alterkat2.binary, int.data.wo.nas$completed.table2), 
       prop.table(table(int.data.wo.nas$alterkat2.binary, int.data.wo.nas$completed.table2),2))
@@ -73,5 +72,6 @@ cbind(table(int.data.wo.nas$all_wissen5, int.data.wo.nas$completed.table2),
 cbind(table(int.data.wo.nas$all_wissen4, int.data.wo.nas$completed.table2), 
       prop.table(table(int.data.wo.nas$all_wissen4, int.data.wo.nas$completed.table2),2))
 
-
-
+#---------------#
+# END OF SCRIPT #
+#---------------#

@@ -355,7 +355,7 @@ text(7.9, 63, count.atleast6)
 # join allergie_bekommen and allergie_schlimm into just one variable: risk_perception,
 # according to Katja's email from Oct 20th 2015
 ???
-# intructions: "You could sum up the two scores (taking the direction into account) and than use the 75th percentile as cut-off in order to define those with a high level of risk perception"
+# intructions: "You could sum up the two scores (taking the direction into account) and then use the 75th percentile as cut-off in order to define those with a high level of risk perception"
 
 # 1. create data$allergie_bekommen_reverse, reversing the score into the correct direction
 # The correct direction should be: 1 (likely) = high risk perception level, 5 (unlikely) = low risk perception level

@@ -75,8 +75,6 @@ result6 <- tmle(Y=Y,A=A,W=W, Delta=Delta, family= "binomial", cvQinit = FALSE,
                 gbound = c(0.025, 0.995))
 summary(result6)
 
-
-
 # testing without covariates (from script 20.)
 # detach("package:SuperLearner", unload=TRUE)
 # A <- int.data.wo.nas$gruppe # treatment
@@ -110,6 +108,7 @@ result4 <- tmle(Y=Y,A=A,W=W, Delta=Delta, family= "binomial", cvQinit = FALSE,
                 gbound = c(0.025, 0.995))
 summary(result4)
 
+table(data$studienort.factor)
 
 #---------------#
 # END OF SCRIPT #
