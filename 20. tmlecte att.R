@@ -10,7 +10,7 @@ library(tmlecte)
 Y <- int.data.wo.nas$all_wissen_nachher
 
 # att (non-treated)
-set.seed(1986)
+set.seed(1985)
 a <- 0
 att6 <- tmle.cte(Y=Y,A=A,B=W, Delta=Delta, a=a, family= "binomial",
                  Q.method = "SL", g.method = "SL", gDelta.method = "SL",
@@ -18,7 +18,7 @@ att6 <- tmle.cte(Y=Y,A=A,B=W, Delta=Delta, a=a, family= "binomial",
                  gDelta.SL.library = SL.library,
                  Q.SL.library = SL.library)
 
-set.seed(1986)
+set.seed(1985)
 a <- 1
 atc6 <- tmle.cte(Y=Y,A=A,B=W, Delta=Delta, a=a, family= "binomial",
                  Q.method = "SL", g.method = "SL", gDelta.method = "SL",
