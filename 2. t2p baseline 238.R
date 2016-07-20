@@ -393,7 +393,7 @@ quantile(rp, 0.75) # 7
 data$risk_perception <- NULL
 
 for(i in 1:length(rp)) {
-  if(rp[i]>=7) {
+  if(rp[i]<7) {
     data$risk_perception[i] <- 0
   }
   else {
