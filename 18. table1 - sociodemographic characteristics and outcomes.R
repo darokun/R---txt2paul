@@ -279,6 +279,3 @@ cbind(table(int.data.wo.nas$gruppe, int.data.wo.nas$all_wissen_nachher3),
 #---------------#
 # END OF SCRIPT #
 #---------------#
-
-
-
