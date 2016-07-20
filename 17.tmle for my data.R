@@ -68,7 +68,7 @@ SL.library <- c("SL.glmnet", "SL.knn.20", "SL.knn.40", "SL.knn.40", "SL.knn.60",
                 "SL.mean", "SL.bayesglm", "SL.glm",
                 "SL.step.interaction", "SL.randomForest")
 
-set.seed(1986)
+set.seed(1985)
 result6 <- tmle(Y=Y,A=A,W=W, Delta=Delta, family= "binomial", cvQinit = FALSE,
                 g.SL.library = SL.library, 
                 Q.SL.library = SL.library, 
@@ -92,7 +92,7 @@ summary(result6)
 
 # WISSEN5
 Y <- int.data.wo.nas$all_wissen_nachher5
-set.seed(1986)
+set.seed(1985)
 result5 <- tmle(Y=Y,A=A,W=W, Delta=Delta, family= "binomial", cvQinit = FALSE,
                 g.SL.library = SL.library, 
                 Q.SL.library = SL.library, 
@@ -101,14 +101,12 @@ summary(result5)
 
 # WISSEN4
 Y <- int.data.wo.nas$all_wissen_nachher4
-
+set.seed(1985)
 result4 <- tmle(Y=Y,A=A,W=W, Delta=Delta, family= "binomial", cvQinit = FALSE,
                 g.SL.library = SL.library, 
                 Q.SL.library = SL.library, 
                 gbound = c(0.025, 0.995))
 summary(result4)
-
-table(data$studienort.factor)
 
 #---------------#
 # END OF SCRIPT #
