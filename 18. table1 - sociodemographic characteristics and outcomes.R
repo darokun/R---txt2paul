@@ -276,46 +276,6 @@ cbind(table(int.data.wo.nas$all_wissen3, int.data.wo.nas$all_wissen_nachher3),
 cbind(table(int.data.wo.nas$gruppe, int.data.wo.nas$all_wissen_nachher3), 
       prop.table(table(int.data.wo.nas$gruppe, int.data.wo.nas$all_wissen_nachher3),1))
 
-#---
-# NAs
-
-# age
-cbind(table(int.data.wo.nas$alterkat2.binary, useNA="always"), 
-      prop.table(table(int.data.wo.nas$alterkat2.binary, useNA="always"),1))
-
-# sex
-cbind(table(int.data.wo.nas$sex.factor, useNA="always"), 
-      prop.table(table(int.data.wo.nas$sex.factor, useNA="always"),1))
-
-
-# smoking status
-cbind(table(int.data.wo.nas$smoking.status, useNA="always"), 
-      prop.table(table(int.data.wo.nas$smoking.status, useNA="always"),1))
-
-# educational level
-cbind(table(int.data.wo.nas$schulabschluss.binary, useNA="always"), 
-      prop.table(table(int.data.wo.nas$schulabschluss.binary, useNA="always"),1))
-
-# risk perception
-cbind(table(int.data.wo.nas$risk_perception, useNA="always"), 
-      prop.table(table(int.data.wo.nas$risk_perception, useNA="always"),1))
-
-# asthma or rhinoconjunctivitis
-cbind(table(int.data.wo.nas$asthma.or.rhinoconj, useNA="always"), 
-      prop.table(table(int.data.wo.nas$asthma.or.rhinoconj, useNA="always"),1))
-
-# parental asthma
-cbind(table(int.data.wo.nas$par.asthma, useNA="always"), 
-      prop.table(table(int.data.wo.nas$par.asthma, useNA="always"),1))
-
-# knowledge at baseline
-cbind(table(int.data.wo.nas$all_wissen3, useNA="always"), 
-      prop.table(table(int.data.wo.nas$all_wissen3, useNA="always"),1))
-
-# treatment
-cbind(table(int.data.wo.nas$gruppe, useNA="always"), 
-      prop.table(table(int.data.wo.nas$gruppe, useNA="always"),1))
-
 #---------------#
 # END OF SCRIPT #
 #---------------#
