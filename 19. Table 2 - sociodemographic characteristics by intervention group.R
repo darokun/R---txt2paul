@@ -19,11 +19,13 @@
 # asthma or rhinoconjunctivitis:  int.data.wo.nas$asthma.or.rhinoconj     0 = no
 # parental asthma:                int.data.wo.nas$par.asthma              0 = no
 # knowledge at baseline:          int.data.wo.nas$all_wissen              0 = no
+# knowledge at follow-up:         int.data.wo.nas$all_wissen_nachher      0 = no
 
 # A:
 # treatment                       int.data.wo.nas$gruppe                  0 = control
 
 # completed and control variable:
+# completed.table2 variable contains info on those who completed the intervention phase, and were either in the control (value=0) or the intervention (value=1) group.
 data.wo.nas$completed.table2 <- data.wo.nas$four.groups[115:230]
 cbind(nachher.table[115:230], data.wo.nas$four.groups[115:230])
 data.wo.nas$completed.table2[data.wo.nas$four.groups==1 | data.wo.nas$four.groups==3] <- NA
@@ -60,6 +62,7 @@ cbind(table(int.data.wo.nas$asthma.or.rhinoconj, int.data.wo.nas$completed.table
 cbind(table(int.data.wo.nas$par.asthma, int.data.wo.nas$completed.table2), 
       prop.table(table(int.data.wo.nas$par.asthma, int.data.wo.nas$completed.table2),2))
 
+# knowledge at baseline
 # knowledge at baseline: wissen6
 cbind(table(int.data.wo.nas$all_wissen, int.data.wo.nas$completed.table2), 
       prop.table(table(int.data.wo.nas$all_wissen, int.data.wo.nas$completed.table2),2))
@@ -68,9 +71,22 @@ cbind(table(int.data.wo.nas$all_wissen, int.data.wo.nas$completed.table2),
 cbind(table(int.data.wo.nas$all_wissen5, int.data.wo.nas$completed.table2), 
       prop.table(table(int.data.wo.nas$all_wissen5, int.data.wo.nas$completed.table2),2))
 
-# knowledge at baseline: wissen6
+# knowledge at baseline: wissen4
 cbind(table(int.data.wo.nas$all_wissen4, int.data.wo.nas$completed.table2), 
       prop.table(table(int.data.wo.nas$all_wissen4, int.data.wo.nas$completed.table2),2))
+
+# knowledge at follow-up
+# knowledge at follow-up: wissen6
+cbind(table(int.data.wo.nas$all_wissen_nachher, int.data.wo.nas$completed.table2), 
+      prop.table(table(int.data.wo.nas$all_wissen_nachher, int.data.wo.nas$completed.table2),2))
+
+# knowledge at follow-up: wissen5
+cbind(table(int.data.wo.nas$all_wissen_nachher5, int.data.wo.nas$completed.table2), 
+      prop.table(table(int.data.wo.nas$all_wissen_nachher5, int.data.wo.nas$completed.table2),2))
+
+# knowledge at follow-up: wissen6
+cbind(table(int.data.wo.nas$all_wissen_nachher4, int.data.wo.nas$completed.table2), 
+      prop.table(table(int.data.wo.nas$all_wissen_nachher4, int.data.wo.nas$completed.table2),2))
 
 #---------------#
 # END OF SCRIPT #

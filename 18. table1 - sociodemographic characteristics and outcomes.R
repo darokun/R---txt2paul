@@ -10,7 +10,7 @@
 
 # W: (covariates)
 # age:                            int.data.wo.nas$alterkat2.binary        0 = younger
-# sex:                            int.data.wo.nas$sex                     0 = male
+# sex:                            int.data.wo.nas$sex.factor              0 = male
 # smoking status:                 int.data.wo.nas$smoking.status          0 = non-smoker
 # educational level:              int.data.wo.nas$schulabschluss.binary   0 = Hauptschulabschluss
 # risk perception:                int.data.wo.nas$risk_perception         0 = low risk perception
@@ -81,215 +81,353 @@ cbind(table(int.data.wo.nas$gruppe,
       prop.table(table(int.data.wo.nas$gruppe, 
                        useNA="always")))
 
-
-# ALL 6:
+#---
+# Follow-up info
 # age
-tempTab <- cbind(table(int.data.wo.nas$alterkat2.binary, 
+# follow-up numbers:
+cbind(table(int.data.wo.nas$alterkat2.binary
+            [!is.na(int.data.wo.nas$all_wissen_nachher)],
+            useNA="always"), 
+      prop.table(table(int.data.wo.nas$alterkat2.binary
+                       [!is.na(int.data.wo.nas$all_wissen_nachher)],
+                       useNA="always")))
+
+# NA numbers:
+tempTab.NA <- cbind(table(int.data.wo.nas$alterkat2.binary, 
             int.data.wo.nas$all_wissen_nachher, 
             useNA="always"), 
       prop.table(table(int.data.wo.nas$alterkat2.binary, 
                        int.data.wo.nas$all_wissen_nachher, 
-                       useNA="always"),1))
+                       useNA="always")))
 
-cbind( tempTab[1] + tempTab[4], 
-       round(tempTab[10] + tempTab[13],4),
-       tempTab[7], round(tempTab[16],4))
-cbind( tempTab[2] + tempTab[5], 
-       round(tempTab[11] + tempTab[14],4),
-       tempTab[8], round(tempTab[17],4))
+rbind(cbind(tempTab.NA[7], round(tempTab.NA[7]/(tempTab.NA[7]+tempTab.NA[8]),4)),
+  cbind(tempTab.NA[8], round(tempTab.NA[8]/(tempTab.NA[7]+tempTab.NA[8]),4)))
 
+# cbind( tempTab[1] + tempTab[4], 
+#        round(tempTab[10] + tempTab[13],4),
+#        tempTab[7], round(tempTab[16],4))
+# cbind( tempTab[2] + tempTab[5], 
+#        round(tempTab[11] + tempTab[14],4),
+#        tempTab[8], round(tempTab[17],4))
 
+int.data.wo.nas$sex.binary
 # sex
-tempTab <- cbind(table(int.data.wo.nas$sex.factor, 
-            int.data.wo.nas$all_wissen_nachher, 
+# follow-up numbers:
+cbind(table(int.data.wo.nas$sex.factor
+            [!is.na(int.data.wo.nas$all_wissen_nachher)],
             useNA="always"), 
-      prop.table(table(int.data.wo.nas$sex.factor, 
-                       int.data.wo.nas$all_wissen_nachher, 
-                       useNA="always"),1))
-cbind( tempTab[1] + tempTab[4], 
-       round(tempTab[10] + tempTab[13],4),
-       tempTab[7], round(tempTab[16],4))
-cbind( tempTab[2] + tempTab[5], 
-       round(tempTab[11] + tempTab[14],4),
-       tempTab[8], round(tempTab[17],4))
+      prop.table(table(int.data.wo.nas$sex.factor
+                       [!is.na(int.data.wo.nas$all_wissen_nachher)],
+                       useNA="always")))
+
+# NA numbers:
+tempTab.NA <- cbind(table(int.data.wo.nas$sex.factor, 
+                          int.data.wo.nas$all_wissen_nachher, 
+                          useNA="always"), 
+                    prop.table(table(int.data.wo.nas$sex.factor, 
+                                     int.data.wo.nas$all_wissen_nachher, 
+                                     useNA="always")))
+
+rbind(cbind(tempTab.NA[7], round(tempTab.NA[7]/(tempTab.NA[7]+tempTab.NA[8]),4)),
+      cbind(tempTab.NA[8], round(tempTab.NA[8]/(tempTab.NA[7]+tempTab.NA[8]),4)))
 
 # smoking status
-tempTab <- cbind(table(int.data.wo.nas$smoking.status, 
-            int.data.wo.nas$all_wissen_nachher, 
+# follow-up numbers:
+cbind(table(int.data.wo.nas$smoking.status
+            [!is.na(int.data.wo.nas$all_wissen_nachher)],
             useNA="always"), 
-      prop.table(table(int.data.wo.nas$smoking.status, 
-                       int.data.wo.nas$all_wissen_nachher, 
-                       useNA="always"),1))
-cbind( tempTab[1] + tempTab[4], 
-       round(tempTab[10] + tempTab[13],4),
-       tempTab[7], round(tempTab[16],4))
-cbind( tempTab[2] + tempTab[5], 
-       round(tempTab[11] + tempTab[14],4),
-       tempTab[8], round(tempTab[17],4))
+      prop.table(table(int.data.wo.nas$smoking.status
+                       [!is.na(int.data.wo.nas$all_wissen_nachher)],
+                       useNA="always")))
+
+# NA numbers:
+tempTab.NA <- cbind(table(int.data.wo.nas$smoking.status, 
+                          int.data.wo.nas$all_wissen_nachher, 
+                          useNA="always"), 
+                    prop.table(table(int.data.wo.nas$smoking.status, 
+                                     int.data.wo.nas$all_wissen_nachher, 
+                                     useNA="always")))
+
+rbind(cbind(tempTab.NA[7], round(tempTab.NA[7]/(tempTab.NA[7]+tempTab.NA[8]),4)),
+      cbind(tempTab.NA[8], round(tempTab.NA[8]/(tempTab.NA[7]+tempTab.NA[8]),4)))
 
 # educational level
-tempTab <- cbind(table(int.data.wo.nas$schulabschluss.binary, 
-            int.data.wo.nas$all_wissen_nachher, 
+# follow-up numbers:
+cbind(table(int.data.wo.nas$schulabschluss.binary
+            [!is.na(int.data.wo.nas$all_wissen_nachher)],
             useNA="always"), 
-      prop.table(table(int.data.wo.nas$schulabschluss.binary, 
-                       int.data.wo.nas$all_wissen_nachher, 
-                       useNA="always"),1))
-cbind( tempTab[1] + tempTab[4], 
-       round(tempTab[10] + tempTab[13],4),
-       tempTab[7], round(tempTab[16],4))
-cbind( tempTab[2] + tempTab[5], 
-       round(tempTab[11] + tempTab[14],4),
-       tempTab[8], round(tempTab[17],4))
+      prop.table(table(int.data.wo.nas$schulabschluss.binary
+                       [!is.na(int.data.wo.nas$all_wissen_nachher)],
+                       useNA="always")))
+
+# NA numbers:
+tempTab.NA <- cbind(table(int.data.wo.nas$schulabschluss.binary, 
+                          int.data.wo.nas$all_wissen_nachher, 
+                          useNA="always"), 
+                    prop.table(table(int.data.wo.nas$schulabschluss.binary, 
+                                     int.data.wo.nas$all_wissen_nachher, 
+                                     useNA="always")))
+
+rbind(cbind(tempTab.NA[7], round(tempTab.NA[7]/(tempTab.NA[7]+tempTab.NA[8]),4)),
+      cbind(tempTab.NA[8], round(tempTab.NA[8]/(tempTab.NA[7]+tempTab.NA[8]),4)))
 
 # risk perception
-tempTab <- cbind(table(int.data.wo.nas$risk_perception, 
-            int.data.wo.nas$all_wissen_nachher, 
+# follow-up numbers:
+cbind(table(int.data.wo.nas$risk_perception
+            [!is.na(int.data.wo.nas$all_wissen_nachher)],
             useNA="always"), 
-      prop.table(table(int.data.wo.nas$risk_perception, 
-                       int.data.wo.nas$all_wissen_nachher, 
-                       useNA="always"),1))
-cbind( tempTab[1] + tempTab[4], 
-       round(tempTab[10] + tempTab[13],4),
-       tempTab[7], round(tempTab[16],4))
-cbind( tempTab[2] + tempTab[5], 
-       round(tempTab[11] + tempTab[14],4),
-       tempTab[8], round(tempTab[17],4))
+      prop.table(table(int.data.wo.nas$risk_perception
+                       [!is.na(int.data.wo.nas$all_wissen_nachher)],
+                       useNA="always")))
+
+# NA numbers:
+tempTab.NA <- cbind(table(int.data.wo.nas$risk_perception, 
+                          int.data.wo.nas$all_wissen_nachher, 
+                          useNA="always"), 
+                    prop.table(table(int.data.wo.nas$risk_perception, 
+                                     int.data.wo.nas$all_wissen_nachher, 
+                                     useNA="always")))
+
+rbind(cbind(tempTab.NA[7], round(tempTab.NA[7]/(tempTab.NA[7]+tempTab.NA[8]),4)),
+      cbind(tempTab.NA[8], round(tempTab.NA[8]/(tempTab.NA[7]+tempTab.NA[8]),4)))
 
 # asthma or rhinoconjunctivitis
-tempTab <- cbind(table(int.data.wo.nas$asthma.or.rhinoconj, 
-            int.data.wo.nas$all_wissen_nachher, 
+# follow-up numbers:
+cbind(table(int.data.wo.nas$asthma.or.rhinoconj
+            [!is.na(int.data.wo.nas$all_wissen_nachher)],
             useNA="always"), 
-      prop.table(table(int.data.wo.nas$asthma.or.rhinoconj, 
-                       int.data.wo.nas$all_wissen_nachher, 
-                       useNA="always"),1))
-cbind( tempTab[1] + tempTab[4], 
-       round(tempTab[10] + tempTab[13],4),
-       tempTab[7], round(tempTab[16],4))
-cbind( tempTab[2] + tempTab[5], 
-       round(tempTab[11] + tempTab[14],4),
-       tempTab[8], round(tempTab[17],4))
+      prop.table(table(int.data.wo.nas$asthma.or.rhinoconj
+                       [!is.na(int.data.wo.nas$all_wissen_nachher)],
+                       useNA="always")))
+
+# NA numbers:
+tempTab.NA <- cbind(table(int.data.wo.nas$asthma.or.rhinoconj, 
+                          int.data.wo.nas$all_wissen_nachher, 
+                          useNA="always"), 
+                    prop.table(table(int.data.wo.nas$asthma.or.rhinoconj, 
+                                     int.data.wo.nas$all_wissen_nachher, 
+                                     useNA="always")))
+
+rbind(cbind(tempTab.NA[7], round(tempTab.NA[7]/(tempTab.NA[7]+tempTab.NA[8]),4)),
+      cbind(tempTab.NA[8], round(tempTab.NA[8]/(tempTab.NA[7]+tempTab.NA[8]),4)))
 
 # parental asthma
-tempTab <- cbind(table(int.data.wo.nas$par.asthma, 
-            int.data.wo.nas$all_wissen_nachher, 
+# follow-up numbers:
+cbind(table(int.data.wo.nas$par.asthma
+            [!is.na(int.data.wo.nas$all_wissen_nachher)],
             useNA="always"), 
-      prop.table(table(int.data.wo.nas$par.asthma, 
-                       int.data.wo.nas$all_wissen_nachher, 
-                       useNA="always"),1))
-cbind( tempTab[1] + tempTab[4], 
-       round(tempTab[10] + tempTab[13],4),
-       tempTab[7], round(tempTab[16],4))
-cbind( tempTab[2] + tempTab[5], 
-       round(tempTab[11] + tempTab[14],4),
-       tempTab[8], round(tempTab[17],4))
+      prop.table(table(int.data.wo.nas$par.asthma
+                       [!is.na(int.data.wo.nas$all_wissen_nachher)],
+                       useNA="always")))
+
+# NA numbers:
+tempTab.NA <- cbind(table(int.data.wo.nas$par.asthma, 
+                          int.data.wo.nas$all_wissen_nachher, 
+                          useNA="always"), 
+                    prop.table(table(int.data.wo.nas$par.asthma, 
+                                     int.data.wo.nas$all_wissen_nachher, 
+                                     useNA="always")))
+
+rbind(cbind(tempTab.NA[7], round(tempTab.NA[7]/(tempTab.NA[7]+tempTab.NA[8]),4)),
+      cbind(tempTab.NA[8], round(tempTab.NA[8]/(tempTab.NA[7]+tempTab.NA[8]),4)))
 
 # knowledge at baseline
-tempTab <- cbind(table(int.data.wo.nas$all_wissen, 
-            int.data.wo.nas$all_wissen_nachher, 
+# follow-up numbers:
+cbind(table(int.data.wo.nas$all_wissen
+            [!is.na(int.data.wo.nas$all_wissen_nachher)],
             useNA="always"), 
-      prop.table(table(int.data.wo.nas$all_wissen, 
-                       int.data.wo.nas$all_wissen_nachher, 
-                       useNA="always"),1))
-cbind( tempTab[1] + tempTab[4], 
-       round(tempTab[10] + tempTab[13],4),
-       tempTab[7], round(tempTab[16],4))
-cbind( tempTab[2] + tempTab[5], 
-       round(tempTab[11] + tempTab[14],4),
-       tempTab[8], round(tempTab[17],4))
+      prop.table(table(int.data.wo.nas$all_wissen
+                       [!is.na(int.data.wo.nas$all_wissen_nachher)],
+                       useNA="always")))
+
+# NA numbers:
+tempTab.NA <- cbind(table(int.data.wo.nas$all_wissen, 
+                          int.data.wo.nas$all_wissen_nachher, 
+                          useNA="always"), 
+                    prop.table(table(int.data.wo.nas$all_wissen, 
+                                     int.data.wo.nas$all_wissen_nachher, 
+                                     useNA="always")))
+
+rbind(cbind(tempTab.NA[7], round(tempTab.NA[7]/(tempTab.NA[7]+tempTab.NA[8]),4)),
+      cbind(tempTab.NA[8], round(tempTab.NA[8]/(tempTab.NA[7]+tempTab.NA[8]),4)))
 
 # treatment
-tempTab <- cbind(table(int.data.wo.nas$gruppe, 
-            int.data.wo.nas$all_wissen_nachher, 
+# follow-up numbers:
+cbind(table(int.data.wo.nas$gruppe
+            [!is.na(int.data.wo.nas$all_wissen_nachher)],
             useNA="always"), 
-      prop.table(table(int.data.wo.nas$gruppe, 
+      prop.table(table(int.data.wo.nas$gruppe
+                       [!is.na(int.data.wo.nas$all_wissen_nachher)],
+                       useNA="always")))
+
+# NA numbers:
+tempTab.NA <- cbind(table(int.data.wo.nas$gruppe, 
+                          int.data.wo.nas$all_wissen_nachher, 
+                          useNA="always"), 
+                    prop.table(table(int.data.wo.nas$gruppe, 
+                                     int.data.wo.nas$all_wissen_nachher, 
+                                     useNA="always")))
+
+rbind(cbind(tempTab.NA[7], round(tempTab.NA[7]/(tempTab.NA[7]+tempTab.NA[8]),4)),
+      cbind(tempTab.NA[8], round(tempTab.NA[8]/(tempTab.NA[7]+tempTab.NA[8]),4)))
+
+#---
+# All 6:
+# age
+cbind(table(int.data.wo.nas$alterkat2.binary, 
+            int.data.wo.nas$all_wissen_nachher, 
+            useNA="no"), 
+      prop.table(table(int.data.wo.nas$alterkat2.binary, 
                        int.data.wo.nas$all_wissen_nachher, 
-                       useNA="always"),1))
-cbind( tempTab[1] + tempTab[4], 
-       round(tempTab[10] + tempTab[13],4),
-       tempTab[7], round(tempTab[16],4))
-cbind( tempTab[2] + tempTab[5], 
-       round(tempTab[11] + tempTab[14],4),
-       tempTab[8], round(tempTab[17],4))
+                       useNA="no"),2))
+
+# sex
+cbind(table(int.data.wo.nas$sex.factor, 
+                       int.data.wo.nas$all_wissen_nachher, 
+                       useNA="no"), 
+                 prop.table(table(int.data.wo.nas$sex.factor, 
+                                  int.data.wo.nas$all_wissen_nachher, 
+                                  useNA="no"),2))
+
+
+# smoking status
+cbind(table(int.data.wo.nas$smoking.status, 
+                       int.data.wo.nas$all_wissen_nachher, 
+                       useNA="no"), 
+                 prop.table(table(int.data.wo.nas$smoking.status, 
+                                  int.data.wo.nas$all_wissen_nachher, 
+                                  useNA="no"),2))
+
+
+# educational level
+cbind(table(int.data.wo.nas$schulabschluss.binary, 
+                       int.data.wo.nas$all_wissen_nachher, 
+                       useNA="no"), 
+                 prop.table(table(int.data.wo.nas$schulabschluss.binary, 
+                                  int.data.wo.nas$all_wissen_nachher, 
+                                  useNA="no"),2))
+
+
+# risk perception
+cbind(table(int.data.wo.nas$risk_perception, 
+                       int.data.wo.nas$all_wissen_nachher, 
+                       useNA="no"), 
+                 prop.table(table(int.data.wo.nas$risk_perception, 
+                                  int.data.wo.nas$all_wissen_nachher, 
+                                  useNA="no"),2))
+
+# asthma or rhinoconjunctivitis
+cbind(table(int.data.wo.nas$asthma.or.rhinoconj, 
+                       int.data.wo.nas$all_wissen_nachher, 
+                       useNA="no"), 
+                 prop.table(table(int.data.wo.nas$asthma.or.rhinoconj, 
+                                  int.data.wo.nas$all_wissen_nachher, 
+                                  useNA="no"),2))
+
+# parental asthma
+cbind(table(int.data.wo.nas$par.asthma, 
+                       int.data.wo.nas$all_wissen_nachher, 
+                       useNA="no"), 
+                 prop.table(table(int.data.wo.nas$par.asthma, 
+                                  int.data.wo.nas$all_wissen_nachher, 
+                                  useNA="no"),2))
+
+
+# knowledge at baseline
+cbind(table(int.data.wo.nas$all_wissen, 
+                       int.data.wo.nas$all_wissen_nachher, 
+                       useNA="no"), 
+                 prop.table(table(int.data.wo.nas$all_wissen, 
+                                  int.data.wo.nas$all_wissen_nachher, 
+                                  useNA="no"),2))
+
+
+# treatment
+cbind(table(int.data.wo.nas$gruppe, 
+                       int.data.wo.nas$all_wissen_nachher, 
+                       useNA="no"), 
+                 prop.table(table(int.data.wo.nas$gruppe, 
+                                  int.data.wo.nas$all_wissen_nachher, 
+                                  useNA="no"),2))
+
 
 #---
 # At least 5:
 # age
 cbind(table(int.data.wo.nas$alterkat2.binary, 
-            int.data.wo.nas$all_wissen_nachher5, 
-            useNA="always"), 
+            int.data.wo.nas$all_wissen_nachher5), 
       prop.table(table(int.data.wo.nas$alterkat2.binary, 
-                       int.data.wo.nas$all_wissen_nachher5, 
-                       useNA="always"),1))
+                       int.data.wo.nas$all_wissen_nachher5),2))
 
 # sex
 cbind(table(int.data.wo.nas$sex.factor, int.data.wo.nas$all_wissen_nachher5), 
-      prop.table(table(int.data.wo.nas$sex.factor, int.data.wo.nas$all_wissen_nachher5),1))
+      prop.table(table(int.data.wo.nas$sex.factor, int.data.wo.nas$all_wissen_nachher5),2))
 
 # smoking status
 cbind(table(int.data.wo.nas$smoking.status, int.data.wo.nas$all_wissen_nachher5), 
-      prop.table(table(int.data.wo.nas$smoking.status, int.data.wo.nas$all_wissen_nachher5),1))
+      prop.table(table(int.data.wo.nas$smoking.status, int.data.wo.nas$all_wissen_nachher5),2))
 
 # educational level
 cbind(table(int.data.wo.nas$schulabschluss.binary, int.data.wo.nas$all_wissen_nachher5), 
-      prop.table(table(int.data.wo.nas$schulabschluss.binary, int.data.wo.nas$all_wissen_nachher5),1))
+      prop.table(table(int.data.wo.nas$schulabschluss.binary, int.data.wo.nas$all_wissen_nachher5),2))
 
 # risk perception
 cbind(table(int.data.wo.nas$risk_perception, int.data.wo.nas$all_wissen_nachher5), 
-      prop.table(table(int.data.wo.nas$risk_perception, int.data.wo.nas$all_wissen_nachher5),1))
+      prop.table(table(int.data.wo.nas$risk_perception, int.data.wo.nas$all_wissen_nachher5),2))
 
 # asthma or rhinoconjunctivitis
 cbind(table(int.data.wo.nas$asthma.or.rhinoconj, int.data.wo.nas$all_wissen_nachher5), 
-      prop.table(table(int.data.wo.nas$asthma.or.rhinoconj, int.data.wo.nas$all_wissen_nachher5),1))
+      prop.table(table(int.data.wo.nas$asthma.or.rhinoconj, int.data.wo.nas$all_wissen_nachher5),2))
 
 # parental asthma
 cbind(table(int.data.wo.nas$par.asthma, int.data.wo.nas$all_wissen_nachher5), 
-      prop.table(table(int.data.wo.nas$par.asthma, int.data.wo.nas$all_wissen_nachher5),1))
+      prop.table(table(int.data.wo.nas$par.asthma, int.data.wo.nas$all_wissen_nachher5),2))
 
 # knowledge at baseline
 cbind(table(int.data.wo.nas$all_wissen5, int.data.wo.nas$all_wissen_nachher5), 
-      prop.table(table(int.data.wo.nas$all_wissen5, int.data.wo.nas$all_wissen_nachher5),1))
+      prop.table(table(int.data.wo.nas$all_wissen5, int.data.wo.nas$all_wissen_nachher5),2))
 
 # treatment
 cbind(table(int.data.wo.nas$gruppe, int.data.wo.nas$all_wissen_nachher5), 
-      prop.table(table(int.data.wo.nas$gruppe, int.data.wo.nas$all_wissen_nachher5),1))
+      prop.table(table(int.data.wo.nas$gruppe, int.data.wo.nas$all_wissen_nachher5),2))
 
 #---
-# At least 4:
+# At least (and less than) 4:
 # age
 cbind(table(int.data.wo.nas$alterkat2.binary, int.data.wo.nas$all_wissen_nachher4), 
-      prop.table(table(int.data.wo.nas$alterkat2.binary, int.data.wo.nas$all_wissen_nachher4),1))
+      prop.table(table(int.data.wo.nas$alterkat2.binary, int.data.wo.nas$all_wissen_nachher4),2))
 
 # sex
 cbind(table(int.data.wo.nas$sex.factor, int.data.wo.nas$all_wissen_nachher4), 
-      prop.table(table(int.data.wo.nas$sex.factor, int.data.wo.nas$all_wissen_nachher4),1))
+      prop.table(table(int.data.wo.nas$sex.factor, int.data.wo.nas$all_wissen_nachher4),2))
 
 # smoking status
 cbind(table(int.data.wo.nas$smoking.status, int.data.wo.nas$all_wissen_nachher4), 
-      prop.table(table(int.data.wo.nas$smoking.status, int.data.wo.nas$all_wissen_nachher4),1))
+      prop.table(table(int.data.wo.nas$smoking.status, int.data.wo.nas$all_wissen_nachher4),2))
 
 # educational level
 cbind(table(int.data.wo.nas$schulabschluss.binary, int.data.wo.nas$all_wissen_nachher4), 
-      prop.table(table(int.data.wo.nas$schulabschluss.binary, int.data.wo.nas$all_wissen_nachher4),1))
+      prop.table(table(int.data.wo.nas$schulabschluss.binary, int.data.wo.nas$all_wissen_nachher4),2))
 
 # risk perception
 cbind(table(int.data.wo.nas$risk_perception, int.data.wo.nas$all_wissen_nachher4), 
-      prop.table(table(int.data.wo.nas$risk_perception, int.data.wo.nas$all_wissen_nachher4),1))
+      prop.table(table(int.data.wo.nas$risk_perception, int.data.wo.nas$all_wissen_nachher4),2))
 
 # asthma or rhinoconjunctivitis
 cbind(table(int.data.wo.nas$asthma.or.rhinoconj, int.data.wo.nas$all_wissen_nachher4), 
-      prop.table(table(int.data.wo.nas$asthma.or.rhinoconj, int.data.wo.nas$all_wissen_nachher4),1))
+      prop.table(table(int.data.wo.nas$asthma.or.rhinoconj, int.data.wo.nas$all_wissen_nachher4),2))
 
 # parental asthma
 cbind(table(int.data.wo.nas$par.asthma, int.data.wo.nas$all_wissen_nachher4), 
-      prop.table(table(int.data.wo.nas$par.asthma, int.data.wo.nas$all_wissen_nachher4),1))
+      prop.table(table(int.data.wo.nas$par.asthma, int.data.wo.nas$all_wissen_nachher4),2))
 
 # knowledge at baseline
 cbind(table(int.data.wo.nas$all_wissen4, int.data.wo.nas$all_wissen_nachher4), 
-      prop.table(table(int.data.wo.nas$all_wissen4, int.data.wo.nas$all_wissen_nachher4),1))
+      prop.table(table(int.data.wo.nas$all_wissen4, int.data.wo.nas$all_wissen_nachher4),2))
 
 # treatment
 cbind(table(int.data.wo.nas$gruppe, int.data.wo.nas$all_wissen_nachher4), 
-      prop.table(table(int.data.wo.nas$gruppe, int.data.wo.nas$all_wissen_nachher4),1))
+      prop.table(table(int.data.wo.nas$gruppe, int.data.wo.nas$all_wissen_nachher4),2))
 
 #---
 # Less than 4: (data$all_wissen3)
