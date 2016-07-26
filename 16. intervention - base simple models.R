@@ -583,8 +583,17 @@ table(int.data.wo.nas$all_wissen.factor,
 # exp(coef(int.all_wissen.cat.glm))
 # exp(confint.default(int.all_wissen.cat.glm))
 
+# Crude all 6
+int.all_wissen_nachher.cat.glm.crude <- glm(all_wissen_nachher.factor ~ 
+                                              gruppe, 
+                                            data = int.data.wo.nas, 
+                                            family = binomial, 
+                                            na.action = na.omit)
+summary(int.all_wissen_nachher.cat.glm.crude)
+exp(coef(int.all_wissen_nachher.cat.glm.crude))
+exp(confint.default(int.all_wissen_nachher.cat.glm.crude))
 
-
+# Adjusted all 6
 int.all_wissen_nachher.cat.glm <- glm(all_wissen_nachher.factor ~ 
                                 gruppe +
                                 all_wissen.factor +
@@ -601,6 +610,64 @@ int.all_wissen_nachher.cat.glm <- glm(all_wissen_nachher.factor ~
 summary(int.all_wissen_nachher.cat.glm)
 exp(coef(int.all_wissen_nachher.cat.glm))
 exp(confint.default(int.all_wissen_nachher.cat.glm))
+
+# Crude at least 5
+int.all_wissen_nachher5.cat.glm.crude <- glm(all_wissen_nachher5.factor ~ 
+                                              gruppe, 
+                                            data = int.data.wo.nas, 
+                                            family = binomial, 
+                                            na.action = na.omit)
+summary(int.all_wissen_nachher5.cat.glm.crude)
+exp(coef(int.all_wissen_nachher5.cat.glm.crude))
+exp(confint.default(int.all_wissen_nachher5.cat.glm.crude))
+
+# Adjusted at least 5
+int.all_wissen_nachher5.cat.glm <- glm(all_wissen_nachher5.factor ~ 
+                                        gruppe +
+                                        all_wissen5.factor +
+                                        alterkat2 +
+                                        sex.factor + 
+                                        smoking.status.factor + 
+                                        schulabschluss.factor.twolevels + 
+                                        risk_perception.factor +
+                                        asthma.or.rhinoconj.factor + 
+                                        par.asthma.factor, 
+                                      data = int.data.wo.nas, 
+                                      family = binomial, 
+                                      na.action = na.omit)
+summary(int.all_wissen_nachher5.cat.glm)
+exp(coef(int.all_wissen_nachher5.cat.glm))
+exp(confint.default(int.all_wissen_nachher5.cat.glm))
+
+# Crude at least 4
+int.all_wissen_nachher4.cat.glm.crude <- glm(all_wissen_nachher4.factor ~ 
+                                               gruppe, 
+                                             data = int.data.wo.nas, 
+                                             family = binomial, 
+                                             na.action = na.omit)
+summary(int.all_wissen_nachher4.cat.glm.crude)
+exp(coef(int.all_wissen_nachher4.cat.glm.crude))
+exp(confint.default(int.all_wissen_nachher4.cat.glm.crude))
+
+# Adjusted at least 4
+int.all_wissen_nachher4.cat.glm <- glm(all_wissen_nachher4.factor ~ 
+                                         gruppe +
+                                         all_wissen4.factor +
+                                         alterkat2 +
+                                         sex.factor + 
+                                         smoking.status.factor + 
+                                         schulabschluss.factor.twolevels + 
+                                         risk_perception.factor +
+                                         asthma.or.rhinoconj.factor + 
+                                         par.asthma.factor, 
+                                       data = int.data.wo.nas, 
+                                       family = binomial, 
+                                       na.action = na.omit)
+summary(int.all_wissen_nachher4.cat.glm)
+exp(coef(int.all_wissen_nachher4.cat.glm))
+exp(confint.default(int.all_wissen_nachher4.cat.glm))
+
+
 
 #---------------#
 # END OF SCRIPT #
