@@ -38,55 +38,79 @@ int.data.wo.nas$completed.table2 <- data.wo.nas$completed.table2[115:230]
 cbind(table(int.data.wo.nas$alterkat2.binary, int.data.wo.nas$completed.table2), 
       prop.table(table(int.data.wo.nas$alterkat2.binary, int.data.wo.nas$completed.table2),2))
 
+fisher.test(int.data.wo.nas$alterkat2.binary, 
+            int.data.wo.nas$completed.table2) #p-value = 0.3363
+
 # sex
 cbind(table(int.data.wo.nas$sex.factor, int.data.wo.nas$completed.table2), 
       prop.table(table(int.data.wo.nas$sex.factor, int.data.wo.nas$completed.table2),2))
+fisher.test(int.data.wo.nas$sex.factor, 
+            int.data.wo.nas$completed.table2) #p-value = 0.6918
 
 # smoking status
 cbind(table(int.data.wo.nas$smoking.status, int.data.wo.nas$completed.table2), 
       prop.table(table(int.data.wo.nas$smoking.status, int.data.wo.nas$completed.table2),2))
+chisq.test(int.data.wo.nas$smoking.status, 
+           int.data.wo.nas$completed.table2) #p-value = 1
 
 # educational level
 cbind(table(int.data.wo.nas$schulabschluss.binary, int.data.wo.nas$completed.table2), 
       prop.table(table(int.data.wo.nas$schulabschluss.binary, int.data.wo.nas$completed.table2),2))
+chisq.test(int.data.wo.nas$schulabschluss.binary, 
+           int.data.wo.nas$completed.table2) #p-value = 0.6818
 
 # risk perception
 cbind(table(int.data.wo.nas$risk_perception, int.data.wo.nas$completed.table2), 
       prop.table(table(int.data.wo.nas$risk_perception, int.data.wo.nas$completed.table2),2))
+fisher.test(int.data.wo.nas$risk_perception, 
+            int.data.wo.nas$completed.table2) #p-value = 0.06937
 
 # asthma or rhinoconjunctivitis
 cbind(table(int.data.wo.nas$asthma.or.rhinoconj, int.data.wo.nas$completed.table2), 
       prop.table(table(int.data.wo.nas$asthma.or.rhinoconj, int.data.wo.nas$completed.table2),2))
+chisq.test(int.data.wo.nas$asthma.or.rhinoconj, 
+           int.data.wo.nas$completed.table2) #p-value = 0.8245
 
 # parental asthma
 cbind(table(int.data.wo.nas$par.asthma, int.data.wo.nas$completed.table2), 
       prop.table(table(int.data.wo.nas$par.asthma, int.data.wo.nas$completed.table2),2))
+chisq.test(int.data.wo.nas$par.asthma, 
+           int.data.wo.nas$completed.table2) #p-value = 0.3933
 
 # knowledge at baseline
 # knowledge at baseline: wissen6
 cbind(table(int.data.wo.nas$all_wissen, int.data.wo.nas$completed.table2), 
       prop.table(table(int.data.wo.nas$all_wissen, int.data.wo.nas$completed.table2),2))
+fisher.test(int.data.wo.nas$all_wissen, 
+            int.data.wo.nas$completed.table2) #p-value = 0.3214
 
 # knowledge at baseline: wissen5
 cbind(table(int.data.wo.nas$all_wissen5, int.data.wo.nas$completed.table2), 
       prop.table(table(int.data.wo.nas$all_wissen5, int.data.wo.nas$completed.table2),2))
+chisq.test(int.data.wo.nas$all_wissen5, 
+           int.data.wo.nas$completed.table2) #p-value = 0.6978
 
 # knowledge at baseline: wissen4
 cbind(table(int.data.wo.nas$all_wissen4, int.data.wo.nas$completed.table2), 
       prop.table(table(int.data.wo.nas$all_wissen4, int.data.wo.nas$completed.table2),2))
+fisher.test(int.data.wo.nas$all_wissen4, 
+            int.data.wo.nas$completed.table2) #p-value = 0.3958
 
 # knowledge at follow-up
 # knowledge at follow-up: wissen6
 cbind(table(int.data.wo.nas$all_wissen_nachher, int.data.wo.nas$completed.table2), 
       prop.table(table(int.data.wo.nas$all_wissen_nachher, int.data.wo.nas$completed.table2),2))
 
+
 # knowledge at follow-up: wissen5
 cbind(table(int.data.wo.nas$all_wissen_nachher5, int.data.wo.nas$completed.table2), 
       prop.table(table(int.data.wo.nas$all_wissen_nachher5, int.data.wo.nas$completed.table2),2))
 
-# knowledge at follow-up: wissen6
+
+# knowledge at follow-up: wissen4
 cbind(table(int.data.wo.nas$all_wissen_nachher4, int.data.wo.nas$completed.table2), 
       prop.table(table(int.data.wo.nas$all_wissen_nachher4, int.data.wo.nas$completed.table2),2))
+
 
 #---------------#
 # END OF SCRIPT #
