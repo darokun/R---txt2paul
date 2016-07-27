@@ -1,6 +1,6 @@
 # R code for implementation
 # Author: Daloha Rodriguez-Molina
-# This code is available electronically at https://raw.githubusercontent.com/darokun/R---txt2paul/master/23.%20R%20code%20for%20implementation.R
+# This code is available electronically at https://github.com/darokun/R---txt2paul/blob/master/23.%20R%20code%20for%20implementation.R
 
 #---
 # Loading required packages
