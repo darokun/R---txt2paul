@@ -1,6 +1,6 @@
 # R code for implementation
-# Author: Daloha Rodr??guez-Molina
-# All codes are available electronically at
+# Author: Daloha Rodriguez-Molina
+# This code is available electronically at https://raw.githubusercontent.com/darokun/R---txt2paul/master/23.%20R%20code%20for%20implementation.R
 
 #---
 # Loading required packages
@@ -313,7 +313,7 @@ data$all_wissen4.factor <- factor(data$all_wissen4, labels = all_wissen.labels)
 #---
 
 #---
-# Prepare dataset
+# PREPARE DATASET
 # create new dataset without NAs 
 which(is.na(data$all_wissen.factor)) #0
 which(is.na(data$sex.factor)) # 162
@@ -328,7 +328,7 @@ data.wo.nas <- data[-c(2, 43, 45, 71, 83, 134, 162, 195),]
 #---
 
 #---
-# completed intervention
+# COMPLETED INTERVENTION
 # I create a data.wo.nas$completed variable, which has answers 0=no and 1=yes, on whether or not they completed the intervention phase (either in the control or in the experimental group)
 
 nachher.table <- cbind(data.wo.nas$haare_nachher, data.wo.nas$arbeitsschuhe_nachher, data.wo.nas$kleidung_aufb_nachher, data.wo.nas$desinfizieren_nachher, data.wo.nas$schutzbrille_nachher, data.wo.nas$kleidung_wohnraum_nachher)
@@ -564,7 +564,7 @@ cbind(table(int.data.wo.nas$all_wissen_nachher4.factor), round(prop.table(table(
 #---
 
 #---
-# housekeeping
+# HOUSEKEEPING
 # age
 int.data.wo.nas$alterkat2.binary <- NULL
 int.data.wo.nas$alterkat2.binary <- as.numeric(int.data.wo.nas$alterkat2)
@@ -600,8 +600,8 @@ for(i in 1:length(int.data.wo.nas$all_wissen_nachher)) {
 #---
 
 #---
-# Table 1
-# TOTAL
+# TABLE 1
+# Total
 # age
 cbind(table(int.data.wo.nas$alterkat2.binary,
             useNA="always"), 
@@ -1005,7 +1005,7 @@ cbind(table(int.data.wo.nas$gruppe, int.data.wo.nas$all_wissen_nachher4),
 #---
 
 #---
-# Table 2
+# TABLE 2
 # completed and control variable:
 # completed.table2 variable contains info on those who completed the intervention phase, and were either in the control (value=0) or the intervention (value=1) group.
 
@@ -1095,7 +1095,7 @@ cbind(table(int.data.wo.nas$all_wissen_nachher4, int.data.wo.nas$completed.table
 #---
 
 #--- 
-# Logistic regression models (Appendix)
+# LOGISTIC REGRESSION MODELS (APPENDIX)
 
 # Crude all 6
 int.all_wissen_nachher.cat.glm.crude <- glm(all_wissen_nachher.factor ~ 
